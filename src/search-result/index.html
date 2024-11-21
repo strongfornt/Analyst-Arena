@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="bg-[#F4F4F7]">
     <!-- header part-- -->
     <header
       style="border-bottom: 0.4px solid rgba(255, 255, 255, 0.3)"
@@ -115,19 +115,219 @@
         class="grid grid-cols-3 items-end gap-x-[48px] gap-y-4"
       ></div>
 
-      <button class="tracking-[0.14px] text-[#C2EFEB] flex items-center mt-4 text-sm font-normal gap-1" >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <mask id="mask0_2_538" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
-            <rect y="24" width="24" height="24" transform="rotate(-90 0 24)" fill="#D9D9D9"/>
-            </mask>
-            <g mask="url(#mask0_2_538)">
-            <path d="M15 12L10 17V7L15 12Z" fill="#C2EFEB"/>
-            </g>
-            </svg>
-    <span>Advance Search</span>            
+      <button
+        class="tracking-[0.14px] text-[#C2EFEB] flex items-center mt-4 text-sm font-normal gap-1"
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <mask
+            id="mask0_2_538"
+            style="mask-type: alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="24"
+            height="24"
+          >
+            <rect
+              y="24"
+              width="24"
+              height="24"
+              transform="rotate(-90 0 24)"
+              fill="#D9D9D9"
+            />
+          </mask>
+          <g mask="url(#mask0_2_538)">
+            <path d="M15 12L10 17V7L15 12Z" fill="#C2EFEB" />
+          </g>
+        </svg>
+        <span>Advance Search</span>
       </button>
     </section>
 
-    <script src="./index.js"></script>
+    <!-- main part  -->
+    <main class="pl-[23px] pr-[27px] flex gap-[17px] mt-[49px]">
+      <!-- left side  -->
+      <div class="flex-1">
+        <!-- left heading part  -->
+        <div class="space-y-3">
+          <h1 class="font-bold text-[#0A0A0A] text-[20px]">
+            Top Ranked Analysts
+          </h1>
+
+          <div class="flex items-center justify-between">
+            <!-- left side  -->
+            <div class="flex items-center gap-[24px]">
+              <h4 class="text-[#0A0A0A] max-w-fit text-[12px] font-medium">
+                Rank by
+              </h4>
+              <!-- buttons  -->
+              <div
+                class="bg-[#E2E2E2] px-2 py-2 rounded-[4px] flex items-center"
+              >
+                <button
+                  class="bg-[#467599] px-[24px] py-[9px] text-[#FFFFFF] font-bold text-[12px] rounded-[4px]"
+                >
+                  IRR Return
+                </button>
+                <button class="text-[#2E2A47] text-[12px] px-6 font-medium">
+                  Vs Market
+                </button>
+                <button class="text-[#2E2A47] text-[12px] px-6 font-medium">
+                  Accuracy
+                </button>
+                <button class="text-[#2E2A47] text-[12px] px-6 font-medium">
+                  Trending
+                </button>
+              </div>
+            </div>
+
+            <!-- right side  -->
+            <div class="flex items-center gap-[26px]">
+              <h4 class="text-[12px] font-medium text-[#0A0A0A]">
+                Min Accuracy
+              </h4>
+              <div class="relative w-[92px] rounded-[4px] bg-[#FFFFFF]">
+                <select
+                  class="appearance-none w-full px-4 py-[10px] text-sm text-[#1C1B1B] font-roboto font-normal tracking-[0.14px] bg-white border border-[#FFF] rounded-[4px] focus:outline-none focus:ring-2 focus:ring-[#467599]"
+                >
+                  <option>50</option>
+                  <option>60</option>
+                  <option>70</option>
+                </select>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="absolute top-1/2 -translate-y-3 right-2 pointer-events-none"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path d="M12 14.5L17 9.5H7L12 14.5Z" fill="#1C1B1B" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right side  -->
+
+      <div class="min-w-[417px] mb-20">
+        <!-- right side card 1  -->
+        <div
+          style="box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06)"
+          class="rounded-[16px] border border-[#E6E6E6] bg-[#FFF] px-4 py-6"
+        >
+          <!-- heading -  -->
+          <div class="flex items-center justify-between">
+            <button
+              class="text-[#0A0A0A] text-[20px] font-semibold bg-[#C2EFEB] rounded-[4px] px-3 py-[6px]"
+            >
+              Latest Ratings
+            </button>
+            <button
+              style="box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.05) inset"
+              class="w-[32px] flex items-center justify-center h-[32px] rounded-full border border-[#D4D4D4]"
+            >
+              <svg
+                width="2"
+                height="12"
+                viewBox="0 0 2 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 0C0.45 0 0 0.45 0 1C0 1.55 0.45 2 1 2C1.55 2 2 1.55 2 1C2 0.45 1.55 0 1 0ZM1 10C0.45 10 0 10.45 0 11C0 11.55 0.45 12 1 12C1.55 12 2 11.55 2 11C2 10.45 1.55 10 1 10ZM1 5C0.45 5 0 5.45 0 6C0 6.55 0.45 7 1 7C1.55 7 2 6.55 2 6C2 5.45 1.55 5 1 5Z"
+                  fill="#0A0A0A"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- table --  -->
+
+          <div class="overflow-x-auto mt-1">
+            <table class="min-w-full rounded-lg">
+              <thead>
+                <tr class="text-[#2C2C2C] border-b border-[#D4D4D4]">
+                  <th class="pl-3 pr-6 py-3 text-left text-sm font-medium">
+                    Stock
+                  </th>
+                  <th class="px-6 py-3 text-left text-sm font-medium">
+                    Analyst IRR
+                  </th>
+                  <th class="px-6 py-3 text-left text-sm font-medium">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="table-body">
+                <!-- Row 1
+                <tr class="border-t border-[#D4D4D4]">
+                  <td
+                    class="pl-3 pr-6 py-[6px] text-[12px] font-semibold text-[#000000]"
+                  >
+                    AAPL
+                  </td>
+                  <td class="px-6 py-[6px]">
+                    <div class="flex items-center gap-2">
+                      <button
+                        class="text-[#2C2C2C] font-medium text-[12px] border border-[#6BE99D] rounded-[4px] p-1"
+                      >
+                        58%
+                      </button>
+                      <div>
+                        <p>K Miranda</p>
+                        <p class="text-[12px] font-normal text-[#2C2C2C]">
+                          Barclay’s
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    class="px-6 py-[6px] text-[12px] space-x-[6px] cursor-pointer"
+                  >
+                    <svg
+                      width="12"
+                      height="7"
+                      viewBox="0 0 12 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="inline"
+                    >
+                      <path
+                        d="M11.5092 5.62065L6.47858 0.275608C6.13274 -0.0918503 5.54878 -0.0918503 5.20295 0.275608L0.172285 5.62065C-0.205674 6.02227 0.0790349 6.68127 0.630535 6.68127H11.0509C11.6025 6.68127 11.8872 6.02227 11.5092 5.62065Z"
+                        fill="#34AF64"
+                      />
+                    </svg>
+                    <span class="text-green-500">Buy</span>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- right side Top Sector Analysts card 2  -->
+        <div
+          class="px-5 py-4 bg-[#FFF] mt-6 border border-[#E6E6E6] rounded-[16px]"
+        >
+          <!-- header  -->
+          <h4 class="text-[18px] font-medium py-[21px] text-[#0A0A0A]">
+            Top Sector Analysts
+          </h4>
+          <!-- card --  -->
+          <div id="tech-card-container" class="space-y-[10px]"></div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
