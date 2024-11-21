@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="font-['Roboto']">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search result</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- header part-- -->
+    <header
+      style="border-bottom: 0.4px solid rgba(255, 255, 255, 0.3)"
+      class="px-[48px] bg-[#331E36] flex items-center justify-between py-[14px]"
+    >
+      <!-- left side -->
+      <div class="flex items-center gap-[64px]">
+        <!-- logo here- -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+        >
+          <g clip-path="url(#clip0_2_1504)">
+            <path
+              d="M28.5363 0.368164C28.5363 1.55136 28.0218 2.63314 27.2673 3.44447C26.4784 4.222 25.3808 4.69528 24.1461 4.69528H8.19733C6.10512 4.69528 4.3902 6.38557 4.3902 8.44771V24.1673C4.3902 26.5676 2.43519 28.4945 0 28.4945V7.60257C0 3.6135 3.29265 0.368164 7.33987 0.368164H28.5363Z"
+              fill="#467599"
+            />
+            <path
+              d="M3.46289 31.8743C3.46289 30.6911 3.97736 29.6093 4.73193 28.798C5.52079 28.0205 6.61834 27.5472 7.85308 27.5472H23.8018C25.8941 27.5472 27.609 25.8569 27.609 23.7948V8.07516C27.609 5.67497 29.564 3.74805 31.9992 3.74805V24.6399C31.9992 28.629 28.7066 31.8743 24.6593 31.8743H3.46289Z"
+              fill="#467599"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_2_1504">
+              <rect width="32" height="32" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+
+        <!-- navigation link here-  -->
+        <ul
+          class="text-[#FFFFFFBF] opacity-75 text-sm font-bold flex item-center gap-[58px]"
+        >
+          <li>Top Analysts</li>
+          <li>Latest Ratings</li>
+          <li>Stock Search</li>
+          <li class="font-normal">Our Tech</li>
+          <li class="font-normal">About us</li>
+        </ul>
+      </div>
+      <!-- right side-- -->
+      <div class="flex items-center gap-[9px]">
+        <!-- notification icon  -->
+        <button
+          class="bg-white rounded-full w-[38px] h-[38px] flex items-center justify-center"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.2003 7.47965L14.6041 7.54731L14.6041 7.54731L15.2003 7.47965ZM15.5729 10.763L16.1691 10.6954L16.1691 10.6954L15.5729 10.763ZM4.42838 10.763L3.83221 10.6954L3.83221 10.6954L4.42838 10.763ZM4.80104 7.47965L5.39721 7.54731L4.80104 7.47965ZM3.70714 12.3938L3.25025 12.0048L3.25025 12.0048L3.70714 12.3938ZM16.2942 12.3938L15.8373 12.7827L15.8373 12.7827L16.2942 12.3938ZM11.8923 3.64504H11.2923C11.2923 3.90151 11.4553 4.12962 11.6979 4.21269L11.8923 3.64504ZM8.10903 3.64504L8.30339 4.21269C8.54602 4.12962 8.70903 3.90151 8.70903 3.64504H8.10903ZM13.0625 16.8776C13.1788 16.5673 13.0215 16.2214 12.7112 16.1052C12.4009 15.9889 12.0551 16.1461 11.9388 16.4564L13.0625 16.8776ZM8.06249 16.4564C7.9462 16.1461 7.60038 15.9889 7.29009 16.1052C6.97979 16.2214 6.82252 16.5673 6.93881 16.8776L8.06249 16.4564ZM14.815 14.4003H5.18633V15.6003H14.815V14.4003ZM14.6041 7.54731L14.9767 10.8307L16.1691 10.6954L15.7964 7.41198L14.6041 7.54731ZM5.02455 10.8307L5.39721 7.54731L4.20487 7.41198L3.83221 10.6954L5.02455 10.8307ZM4.16403 12.7827C4.64206 12.2211 4.9433 11.5466 5.02455 10.8307L3.83221 10.6954C3.77923 11.1622 3.58164 11.6155 3.25025 12.0048L4.16403 12.7827ZM14.9767 10.8307C15.058 11.5466 15.3592 12.2211 15.8373 12.7827L16.7511 12.0048C16.4197 11.6155 16.2221 11.1622 16.1691 10.6954L14.9767 10.8307ZM5.18633 14.4003C4.63183 14.4003 4.23721 14.1258 4.05437 13.8036C3.87746 13.4919 3.88034 13.1159 4.16403 12.7827L3.25025 12.0048C2.61975 12.7455 2.6004 13.6729 3.01071 14.3959C3.41511 15.1085 4.21718 15.6003 5.18633 15.6003V14.4003ZM14.815 15.6003C15.7841 15.6003 16.5862 15.1085 16.9906 14.3959C17.4009 13.6729 17.3816 12.7455 16.751 12.0048L15.8373 12.7827C16.121 13.1159 16.1238 13.4919 15.9469 13.8036C15.7641 14.1258 15.3695 14.4003 14.815 14.4003V15.6003ZM12.4923 3.64504V3.55861H11.2923V3.64504H12.4923ZM15.7964 7.41198C15.565 5.37289 14.0522 3.75037 12.0866 3.07739L11.6979 4.21269C13.303 4.76226 14.4336 6.04549 14.6041 7.54731L15.7964 7.41198ZM8.70903 3.64504V3.55861H7.50903V3.64504H8.70903ZM5.39721 7.54731C5.56766 6.04549 6.69827 4.76226 8.30339 4.21269L7.91467 3.07739C5.94913 3.75037 4.4363 5.37289 4.20487 7.41198L5.39721 7.54731ZM10.0007 2.26699C10.714 2.26699 11.2923 2.84527 11.2923 3.55861H12.4923C12.4923 2.18253 11.3767 1.06699 10.0007 1.06699V2.26699ZM10.0007 1.06699C8.62457 1.06699 7.50903 2.18253 7.50903 3.55861H8.70903C8.70903 2.84527 9.28731 2.26699 10.0007 2.26699V1.06699ZM11.9388 16.4564C11.6661 17.1841 10.9145 17.7337 10.0007 17.7337V18.9337C11.3952 18.9337 12.6074 18.0918 13.0625 16.8776L11.9388 16.4564ZM10.0007 17.7337C9.08682 17.7337 8.33522 17.1841 8.06249 16.4564L6.93881 16.8776C7.39389 18.0918 8.6061 18.9337 10.0007 18.9337V17.7337Z"
+              fill="#2E2A47"
+            />
+            <circle cx="14.5" cy="3.5" r="3.5" fill="#FC7777" />
+          </svg>
+        </button>
+
+        <!-- line --  -->
+
+        <svg
+          width="2"
+          height="46"
+          viewBox="0 0 2 46"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1 1L1 45"
+            stroke="#ECFEE8"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          />
+        </svg>
+
+        <!-- profiler --  -->
+        <div
+          class="bg-[#FFFFFF] px-2 py-1 rounded-[8px] w-[180px] flex items-center justify-between"
+        >
+          <div class="flex items-center gap-2">
+            <img src="./../assests//search-result/profile.svg" alt="profile" />
+            <h4 class="text-[#2E2A47] text-[11px] font-normal">Hello Max</h4>
+          </div>
+
+          <div class="bg-[#EE6352] px-[10px] py-[8px] rounded-[6px]">
+            <p class="text-white font-normal text-[10px]">28 Jun</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- filtering part --  -->
+    <section class="px-[50px] pt-3 pb-[29px] bg-[#331E36]">
+      <div
+        id="dropdown-container"
+        class="grid grid-cols-3 items-end gap-x-[48px] gap-y-4"
+      ></div>
+
+      <button class="tracking-[0.14px] text-[#C2EFEB] flex items-center mt-4 text-sm font-normal gap-1" >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <mask id="mask0_2_538" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+            <rect y="24" width="24" height="24" transform="rotate(-90 0 24)" fill="#D9D9D9"/>
+            </mask>
+            <g mask="url(#mask0_2_538)">
+            <path d="M15 12L10 17V7L15 12Z" fill="#C2EFEB"/>
+            </g>
+            </svg>
+    <span>Advance Search</span>            
+      </button>
+    </section>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
