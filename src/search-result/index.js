@@ -21,7 +21,7 @@ search.classList.add(
   "justify-center",
   "p-2.5",
   "gap-[8px]",
-  "h-[42px]",
+  "h-[44px]",
   "border",
   "rounded-md",
   "border-[#467599]",
