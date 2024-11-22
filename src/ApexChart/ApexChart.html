@@ -1,130 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ApexCharts with Fixed Labels and Custom Tooltips</title>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      background-color: #f4f4f9;
-    }
-    #chart {
-      width: 800px;
-      height: 400px;
-    }
-    /* Custom Tooltip Design */
-    .apexcharts-tooltip {
-      padding: 10px;
-      background: #fff; /* White background */
-      border: 1px solid #ddd; /* Border for tooltip */
-      border-radius: 5px;
-      color: #333;
-      font-size: 14px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adding a shadow for clarity */
-      min-width: 150px; /* Optional: control width */
-    }
-    /* For arrow of the tooltip */
-    .apexcharts-tooltip .apexcharts-tooltip-arrow {
-      border-color: #ddd transparent transparent transparent;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Annotations</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        #chart {
+            width: 800px;
+            height: 400px;
+        }
+
+        .custom-tooltip {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+            color: #333;
+            text-align: left;
+            white-space: nowrap;
+        }
+    </style>
 </head>
+
 <body>
-  <div id="chart"></div>
+    <div class="flex flex-col">
+        <div id="chart"></div>
+        <div id="stacked-bar-chart-section">
+            <div id="stacked-bar-chart"></div>
+        </div>
+    </div>
 
-  <script>
-    // Example Dynamic Data
-    const data = [
-      { x: 0, y: 0 },  // Start point at 0
-      { x: 1, y: 80 },  // Between 0 and Q1
-      { x: 2, y: 100 }, // Between Q1 and Q2
-      { x: 3, y: 120 }, // Between Q2 and Q3
-      { x: 4, y: 150 }, // Between Q3 and Q4
-      { x: 5, y: 90 },  // Beyond Q4 but still on the graph
-    ];
-
-    // Custom Tooltips and Markers for Points at Q1, Q2, Q3, Q4
-    const points = [
-      { x: 1, label: 'Q1', color: 'green', value: '$100 PT', name: 'Todd Cruset', company: 'Well Fargo', gain: '17% Gain', irr: '19% IRR' },
-      { x: 2, label: 'Q2', color: 'red', value: '$60 PT', name: 'Jane Doe', company: 'XYZ Corp', gain: '10% Gain', irr: '12% IRR' },
-      { x: 3, label: 'Q3', color: 'blue', value: '$70 PT', name: 'John Smith', company: 'ABC Inc.', gain: '15% Gain', irr: '14% IRR' },
-      { x: 4, label: 'Q4', color: 'green', value: '$150 PT', name: 'Alice Brown', company: 'TechCo', gain: '25% Gain', irr: '22% IRR' },
-    ];
-
-    const options = {
-      chart: {
-        type: "line",
-        toolbar: { show: false },
-        height: 400,
-      },
-      grid: {
-        padding: { bottom: 20 },
-      },
-      xaxis: {
-        categories: ["0", "Q1", "Q2", "Q3", "Q4"], 
-        labels: {
-          show: true,
-          style: { fontSize: "12px", colors: "#333" },
-          rotate: 0, 
-        },
-        tickAmount: 5, 
-        axisBorder: {
-          show: true, 
-          color: '#ddd', 
-        },
-      },
-      yaxis: {
-        min: 0,
-        max: 200,
-        labels: {
-          formatter: function (value) {
-            return `$${value}`;
-          },
-          style: { fontSize: "12px" },
-        },
-      },
-      stroke: {
-        curve: "smooth",
-        width: 2,
-      },
-      markers: {
-        size: 5,
-        colors: points.map(point => point.color), // Dynamic marker colors
-        strokeColors: ['#fff'],
-        strokeWidth: 2,
-        shape: 'circle',
-      },
-      tooltip: {
-        enabled: true,
-        custom: function({ seriesIndex, dataPointIndex, w }) {
-          const point = points.find(p => p.x === data[dataPointIndex].x); // Find the point data by matching x value
-          if (!point) return ''; // No tooltip for other points
-
-          return `
-            <div class="apexcharts-tooltip">
-              <strong>${point.value}</strong><br>
-              <span>${point.label}</span><br>
-              <span>${point.name}<br>${point.company}</span><br>
-              <span>${point.gain}</span><br>
-              <span>${point.irr}</span>
+    <!-- line chart -->
+    <script>
+        const options = {
+            chart: {
+                type: "line",
+                height: 400,
+                toolbar: { show: false },
+            },
+            series: [
+                {
+                    name: "Price",
+                    data: [0, 80, 100, 120, 150],
+                },
+            ],
+            xaxis: {
+                categories: ["0", "Q1", "Q2", "Q3", "Q4"],
+                labels: {
+                    style: {
+                        fontSize: "12px",
+                        colors: "#333",
+                    },
+                },
+                axisBorder: {
+                    show: true,
+                    color: "#000",
+                },
+                axisTicks: {
+                    show: true,
+                    color: "#000",
+                },
+            },
+            yaxis: {
+                min: 0,
+                max: 200,
+                labels: {
+                    formatter: (value) => `$${value}`,
+                    style: { fontSize: "12px" },
+                },
+            },
+            stroke: {
+                curve: "smooth",
+                width: 2,
+            },
+            markers: {
+                size: 6,
+                colors: ["#fff"],
+                strokeColors: ["green", "red", "blue", "green"],
+                strokeWidth: 2,
+                shape: "circle",
+            },
+            annotations: {
+                points: [
+                    {
+                        x: "Q1",
+                        y: 80,
+                        marker: {
+                            size: 8,
+                            fillColor: "green", // Normal fill color
+                            strokeColor: "green", // Normal border color
+                            strokeWidth: 3,
+                        },
+                        label: {
+                            text: `Todd Cruset\nWell Fargo\n17% Gain\n19% IRR\nROI: 25%\nTarget: $200`, // Adding more values to annotation
+                            borderColor: "green",
+                            position: "top",
+                            offsetY: -60,
+                            style: {
+                                fontSize: "12px",
+                                color: "#333",
+                                background: "green",
+                                borderRadius: 8,
+                                padding: {
+                                    left: 10,
+                                    right: 10,
+                                    top: 5,
+                                    bottom: 5,
+                                },
+                            },
+                        },
+                    },
+                    {
+                        x: "Q2",
+                        y: 100,
+                        marker: {
+                            size: 8,
+                            fillColor: "red", // Normal fill color
+                            strokeColor: "red", // Normal border color
+                            strokeWidth: 3,
+                        },
+                        label: {
+                            text: `Todd Cruset\nWell Fargo\n15% Gain\n20% IRR\nROI: 18%\nTarget: $180`, // Adding more values to annotation
+                            borderColor: "red",
+                            position: "top",
+                            offsetY: -60,
+                            style: {
+                                fontSize: "12px",
+                                color: "#333",
+                                background: "red",
+                                borderRadius: 8,
+                                padding: {
+                                    left: 10,
+                                    right: 10,
+                                    top: 5,
+                                    bottom: 5,
+                                },
+                            },
+                        },
+                    },
+                ],
+            },
+            tooltip: {
+                enabled: true,
+                custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+                    const xVal = w.globals.labels[dataPointIndex];
+                    const yVal = series[seriesIndex][dataPointIndex];
+                    return `
+            <div class="custom-tooltip">
+              <strong>${xVal}</strong><br>
+              <span>$${yVal}</span>
             </div>
           `;
-        },
-      },
-      series: [{
-        name: "Price",
-        data: data.map(item => item.y),
-      }],
-    };
+                },
+            },
+        };
 
-    const chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-  </script>
+        const chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+
+    <!-- bar chart -->
+    <script>
+        var options2 = {
+            series: [
+                { name: "Strong Buy", data: [8, 8, 8, 8] },
+                { name: "Buy", data: [12, 12, 12, 12] },
+                { name: "Hold", data: [6, 6, 6, 6] },
+                { name: "Sell", data: [4, 4, 4, 4] },
+                { name: "Strong Sell", data: [2, 2, 2, 2] },
+            ],
+            chart: {
+                type: "bar",
+                stacked: true,
+                height: 350,
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '20%', // Adjust this to control the width of the bars
+                },
+            },
+            xaxis: {
+                categories: ["Q1", "Q2", "Q3", "Q4"],
+                show: false, // Hide x-axis
+                axisBorder: {
+                    show: false, // Hide the x-axis line
+                },
+                axisTicks: {
+                    show: false, // Hide the ticks on the x-axis
+                },
+            },
+            yaxis: {
+                title: {
+                    text: "Ratings",
+                },
+                show: false, // Hide y-axis
+                axisBorder: {
+                    show: false, // Hide the y-axis line
+                },
+                axisTicks: {
+                    show: false, // Hide the ticks on the y-axis
+                },
+            },
+            grid: {
+                show: false, // Hide grid lines
+            },
+            legend: {
+                position: "bottom",
+                horizontalAlign: "center",
+            },
+            fill: {
+                opacity: 1,
+            },
+            colors: ["#00C851", "#33B5E5", "#bdbdbd", "#ff4444", "#CC0000"],
+            //   annotations: {
+            //     points: [
+            //       {
+            //         x: "Q1",
+            //         y: 32, // Example aggregated value for Q1
+            //         label: {
+            //           text: "32 Ratings",
+            //           style: {
+            //             background: "#e3e3e3",
+            //             color: "#000",
+            //           },
+            //           offsetX: 60, // Position label to the right
+            //         },
+            //       },
+            //       {
+            //         x: "Q2",
+            //         y: 32, // Example aggregated value for Q2
+            //         label: {
+            //           text: "32 Ratings",
+            //           style: {
+            //             background: "#e3e3e3",
+            //             color: "#000",
+            //           },
+            //           offsetX: 60,
+            //         },
+            //       },
+            //       {
+            //         x: "Q3",
+            //         y: 32, // Example aggregated value for Q3
+            //         label: {
+            //           text: "32 Ratings",
+            //           style: {
+            //             background: "#e3e3e3",
+            //             color: "#000",
+            //           },
+            //           offsetX: 60,
+            //         },
+            //       },
+            //       {
+            //         x: "Q4",
+            //         y: 32, // Example aggregated value for Q4
+            //         label: {
+            //           text: "32 Ratings",
+            //           style: {
+            //             background: "#e3e3e3",
+            //             color: "#000",
+            //           },
+            //           offsetX: 60,
+            //         },
+            //       },
+            //     ],
+            //   },
+            tooltip: {
+                custom: function ({ seriesIndex, dataPointIndex }) {
+                    return `
+            <div style="padding: 10px; border: 1px solid #ccc; background: #fff;">
+              <p><strong>${options2.xaxis.categories[dataPointIndex]}</strong></p>
+              <p><strong>${options2.series[seriesIndex].name}:</strong> ${options2.series[seriesIndex].data[dataPointIndex]}</p>
+              <p>Avg Rating: 3.4</p>
+              <p>Avg PT: $60</p>
+              <p>Avg Upside: 22%</p>
+            </div>
+          `;
+                },
+            },
+        };
+
+        var chart2 = new ApexCharts(document.querySelector("#stacked-bar-chart"), options2);
+        chart2.render();
+    </script>
+
+
 </body>
+
 </html>
