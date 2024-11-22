@@ -2,11 +2,13 @@ import { tableRow } from "./table.js";
 import { rows } from "./data.js";
 import { dropdownData } from "./data.js";
 import { cardHTML } from "./techSector.js";
+import {toddCrusetCard} from "./toddCruset.js"
 
 // get by id and class
 const container = document.getElementById("dropdown-container");
 const tableBody = document.getElementById("table-body");
 const techCardContainer = document.getElementById("tech-card-container");
+const toddCruesetContainer  = document.getElementById('todd-crueset-container');
 
 // Create the container div
 const search = document.createElement("div");
@@ -154,4 +156,10 @@ for (let i = 0; i < 3; i++) {
 const allCards = techCardContainer.querySelectorAll('div.border-b'); 
 if (allCards.length > 0) {
   allCards[allCards.length - 1].classList.remove('border-b');
+}
+
+
+// todd cruset card goes here --
+for (let i = 0; i < 8; i ++ ) {
+  toddCruesetContainer.innerHTML +=toddCrusetCard
 }
