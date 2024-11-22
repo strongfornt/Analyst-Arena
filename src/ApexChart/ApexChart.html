@@ -37,141 +37,197 @@
 
 <body>
     <div class="flex flex-col">
-        <div id="chart"></div>
+        <div id="chart" style="max-width: 800px; margin: auto;"></div>
         <div id="stacked-bar-chart-section">
             <div id="stacked-bar-chart"></div>
         </div>
     </div>
 
-    <!-- line chart -->
+    
     <script>
-        const options = {
+        var options = {
             chart: {
-                type: "line",
+                type: 'line',
                 height: 400,
-                toolbar: { show: false },
+                toolbar: {
+                    show: false
+                }
             },
-            series: [
-                {
-                    name: "Price",
-                    data: [0, 80, 100, 120, 150],
-                },
-            ],
+            series: [{
+                name: 'Stock Price',
+                data: [0, 100, 60, 70, 150] // Actual data points for 0, Q1, Q2, Q3, Q4
+            }],
             xaxis: {
-                categories: ["0", "Q1", "Q2", "Q3", "Q4"],
+                categories: ['0', 'Q1', 'Q2', 'Q3', 'Q4'], 
                 labels: {
                     style: {
-                        fontSize: "12px",
-                        colors: "#333",
-                    },
-                },
-                axisBorder: {
-                    show: true,
-                    color: "#000",
-                },
-                axisTicks: {
-                    show: true,
-                    color: "#000",
-                },
+                        fontSize: '12px'
+                    }
+                }
             },
             yaxis: {
-                min: 0,
-                max: 200,
-                labels: {
-                    formatter: (value) => `$${value}`,
-                    style: { fontSize: "12px" },
+            min: 0,
+            max: 250,
+            labels: {
+                formatter: function (value) {
+                    return `$${value}`; 
                 },
+                style: {
+                    fontSize: '12px'
+                }
             },
-            stroke: {
-                curve: "smooth",
-                width: 2,
+            axisBorder: {
+                show: true, 
+                color: '#333', 
+                width: 1 
             },
+            axisTicks: {
+                show: true, 
+                color: '#333', 
+                width: 1 
+            },
+            grid: {
+                show: true, 
+                borderColor: '#e0e0e0', 
+                strokeDashArray: 0, 
+                position: 'back', 
+                xaxis: {
+                    lines: {
+                        show: true 
+                    }
+                },
+                yaxis: {
+                    lines: {
+                        show: true 
+                    }
+                }
+            }
+        },
             markers: {
                 size: 6,
-                colors: ["#fff"],
-                strokeColors: ["green", "red", "blue", "green"],
-                strokeWidth: 2,
-                shape: "circle",
+                colors: ['#fff'],
+                strokeColors: ['#00E396', '#FF4560', '#00E396', '#00E396', '#FF4560'], // Adjust colors for markers
+                strokeWidth: 3,
+                hover: {
+                    size: 8
+                }
+            },
+            stroke: {
+                curve: 'smooth',
+                width: 2
+            },
+            dataLabels: {
+                enabled: true, // Enable data labels
+                formatter: function (val) {
+                    return `$${val}`; // Show value with a $ sign on each point
+                },
+                style: {
+                    fontSize: '12px',
+                    colors: ['#000'] // Label color
+                },
+                offsetY: -10, // Position the data label above the point
             },
             annotations: {
-                points: [
-                    {
-                        x: "Q1",
-                        y: 80,
-                        marker: {
-                            size: 8,
-                            fillColor: "green", // Normal fill color
-                            strokeColor: "green", // Normal border color
-                            strokeWidth: 3,
-                        },
-                        label: {
-                            text: `Todd Cruset\nWell Fargo\n17% Gain\n19% IRR\nROI: 25%\nTarget: $200`, // Adding more values to annotation
-                            borderColor: "green",
-                            position: "top",
-                            offsetY: -60,
-                            style: {
-                                fontSize: "12px",
-                                color: "#333",
-                                background: "green",
-                                borderRadius: 8,
-                                padding: {
-                                    left: 10,
-                                    right: 10,
-                                    top: 5,
-                                    bottom: 5,
-                                },
-                            },
-                        },
+                points: [{
+                    x: 'Q1',
+                    y: 100,
+                    marker: {
+                        size: 6,
+                        fillColor: '#00E396',
+                        strokeColor: '#00E396',
+                        radius: 2
                     },
-                    {
-                        x: "Q2",
-                        y: 100,
-                        marker: {
-                            size: 8,
-                            fillColor: "red", // Normal fill color
-                            strokeColor: "red", // Normal border color
-                            strokeWidth: 3,
-                        },
-                        label: {
-                            text: `Todd Cruset\nWell Fargo\n15% Gain\n20% IRR\nROI: 18%\nTarget: $180`, // Adding more values to annotation
-                            borderColor: "red",
-                            position: "top",
-                            offsetY: -60,
-                            style: {
-                                fontSize: "12px",
-                                color: "#333",
-                                background: "red",
-                                borderRadius: 8,
-                                padding: {
-                                    left: 10,
-                                    right: 10,
-                                    top: 5,
-                                    bottom: 5,
-                                },
-                            },
-                        },
+                    label: {
+                        borderWidth: 1,
+                        borderColor: '#00E396',
+                        style: {
+                            fontSize: '10px',
+                            background: '#fff',
+                            color: '#000'
+                        }
+                    }
+                },
+                {
+                    x: 'Q2',
+                    y: 60,
+                    marker: {
+                        size: 6,
+                        fillColor: '#FF4560',
+                        strokeColor: '#FF4560',
+                        radius: 2
                     },
-                ],
+                    label: {
+                        borderWidth: 1,
+                        borderColor: '#FF4560',
+                        style: {
+                            fontSize: '10px',
+                            background: '#fff',
+                            color: '#000'
+                        }
+                    }
+                },
+                {
+                    x: 'Q3',
+                    y: 70,
+                    marker: {
+                        size: 6,
+                        fillColor: '#00E396',
+                        strokeColor: '#00E396',
+                        radius: 2
+                    },
+                    label: {
+                        borderWidth: 1,
+                        borderColor: '#00E396',
+                        style: {
+                            fontSize: '10px',
+                            background: '#fff',
+                            color: '#000'
+                        }
+                    }
+                },
+                {
+                    x: 'Q4',
+                    y: 150,
+                    marker: {
+                        size: 6,
+                        fillColor: '#00E396',
+                        strokeColor: '#00E396',
+                        radius: 2
+                    },
+                    label: {
+                        borderWidth: 1,
+                        borderColor: '#00E396',
+                        style: {
+                            fontSize: '10px',
+                            background: '#fff',
+                            color: '#000'
+                        }
+                    }
+                }]
             },
             tooltip: {
                 enabled: true,
                 custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-                    const xVal = w.globals.labels[dataPointIndex];
-                    const yVal = series[seriesIndex][dataPointIndex];
+                    const dataLabels = ['0', 'Q1', 'Q2', 'Q3', 'Q4'];
+                    const ptValues = ['$0 PT', '$100 PT', '$60 PT', '$70 PT', '$150 PT'];
                     return `
-            <div class="custom-tooltip">
-              <strong>${xVal}</strong><br>
-              <span>$${yVal}</span>
-            </div>
-          `;
-                },
-            },
+                        <div style="padding: 10px; border: 1px solid #ddd; background: #fff; text-align: left;">
+                            <strong>${dataLabels[dataPointIndex]}</strong><br/>
+                            Price: ${ptValues[dataPointIndex]}<br/>
+                            Todd Cruset<br/>
+                            Well Fargo<br/>
+                            17% Gain<br/>
+                            19% IRR
+                        </div>`;
+                }
+            }
         };
-
-        const chart = new ApexCharts(document.querySelector("#chart"), options);
+    
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
     </script>
-
+    
+    
     <!-- bar chart -->
     <script>
         var options2 = {
@@ -190,33 +246,40 @@
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '20%', // Adjust this to control the width of the bars
+                    columnWidth: '20%',
+                    dataLabels: {
+                        position: 'top'
+                    }
                 },
             },
             xaxis: {
                 categories: ["Q1", "Q2", "Q3", "Q4"],
-                show: false, // Hide x-axis
+                show: true,
                 axisBorder: {
-                    show: false, // Hide the x-axis line
+                    show: false,
                 },
                 axisTicks: {
-                    show: false, // Hide the ticks on the x-axis
+                    show: false,
+                },
+
+                labels: {
+                    offsetY: -125,
                 },
             },
             yaxis: {
                 title: {
                     text: "Ratings",
                 },
-                show: false, // Hide y-axis
+                show: false,
                 axisBorder: {
-                    show: false, // Hide the y-axis line
+                    show: false,
                 },
                 axisTicks: {
-                    show: false, // Hide the ticks on the y-axis
+                    show: false,
                 },
             },
             grid: {
-                show: false, // Hide grid lines
+                show: false,
             },
             legend: {
                 position: "bottom",
@@ -226,69 +289,21 @@
                 opacity: 1,
             },
             colors: ["#00C851", "#33B5E5", "#bdbdbd", "#ff4444", "#CC0000"],
-            //   annotations: {
-            //     points: [
-            //       {
-            //         x: "Q1",
-            //         y: 32, // Example aggregated value for Q1
-            //         label: {
-            //           text: "32 Ratings",
-            //           style: {
-            //             background: "#e3e3e3",
-            //             color: "#000",
-            //           },
-            //           offsetX: 60, // Position label to the right
-            //         },
-            //       },
-            //       {
-            //         x: "Q2",
-            //         y: 32, // Example aggregated value for Q2
-            //         label: {
-            //           text: "32 Ratings",
-            //           style: {
-            //             background: "#e3e3e3",
-            //             color: "#000",
-            //           },
-            //           offsetX: 60,
-            //         },
-            //       },
-            //       {
-            //         x: "Q3",
-            //         y: 32, // Example aggregated value for Q3
-            //         label: {
-            //           text: "32 Ratings",
-            //           style: {
-            //             background: "#e3e3e3",
-            //             color: "#000",
-            //           },
-            //           offsetX: 60,
-            //         },
-            //       },
-            //       {
-            //         x: "Q4",
-            //         y: 32, // Example aggregated value for Q4
-            //         label: {
-            //           text: "32 Ratings",
-            //           style: {
-            //             background: "#e3e3e3",
-            //             color: "#000",
-            //           },
-            //           offsetX: 60,
-            //         },
-            //       },
-            //     ],
-            //   },
+            dataLabels: {
+                enabled: false,
+            },
             tooltip: {
                 custom: function ({ seriesIndex, dataPointIndex }) {
+                    // Corrected tooltip return format
                     return `
-            <div style="padding: 10px; border: 1px solid #ccc; background: #fff;">
-              <p><strong>${options2.xaxis.categories[dataPointIndex]}</strong></p>
-              <p><strong>${options2.series[seriesIndex].name}:</strong> ${options2.series[seriesIndex].data[dataPointIndex]}</p>
-              <p>Avg Rating: 3.4</p>
-              <p>Avg PT: $60</p>
-              <p>Avg Upside: 22%</p>
-            </div>
-          `;
+                    <div style="padding: 10px; border: 1px solid #ccc; background: #fff;">
+                        <p><strong>${options2.xaxis.categories[dataPointIndex]}</strong></p>
+                        <p><strong>${options2.series[seriesIndex].name}:</strong> ${options2.series[seriesIndex].data[dataPointIndex]}</p>
+                        <p>Avg Rating: 3.4</p>
+                        <p>Avg PT: $60</p>
+                        <p>Avg Upside: 22%</p>
+                    </div>
+                `;
                 },
             },
         };
@@ -296,7 +311,6 @@
         var chart2 = new ApexCharts(document.querySelector("#stacked-bar-chart"), options2);
         chart2.render();
     </script>
-
 
 </body>
 
