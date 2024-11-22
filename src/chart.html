@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ApexCharts Line Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+      #chart {
+        max-width: 814px;
+        margin: auto;
+
+        border-radius: 8px;
+        padding: 20px;
+      }
+      .custom-tooltip {
+        padding: 5.053px;
+        border: 1px solid #666;
+        background: #fff;
+        text-align: left;
+        font-size: 12px;
+        color: #666;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+
+    <script>
+      var options = {
+        chart: {
+          type: "line",
+          height: 401,
+          width: 814,
+          zoom: {
+            enabled: true,
+            type: "x",
+          },
+          toolbar: {
+            show: false,
+          },
+        },
+        series: [
+          {
+            name: "Stock Price",
+            data: [0, 100, 60, 70, 150],
+          },
+        ],
+        xaxis: {
+          categories: ["", "Q1", "Q2", "Q3", "Q4"],
+          labels: {
+            style: {
+              fontSize: "12px",
+            },
+          },
+        },
+        yaxis: {
+          min: 0,
+          max: 250,
+          labels: {
+            formatter: function (value) {
+              return `$${value}`;
+            },
+            style: {
+              fontSize: "12px",
+            },
+          },
+        },
+        markers: {
+          size: 0,
+          colors: ["#fff"],
+          strokeColors: ["", "#00E396", "#FF4560", "#00E396", "#00E396"],
+          strokeWidth: 3,
+          hover: {
+            size: 0,
+          },
+        },
+        stroke: {
+          curve: "smooth",
+          width: 2,
+          colors: ["#467599"],
+        },
+        annotations: {
+          points: [
+            {
+              x: "Q1",
+              y: 100,
+              marker: {
+                size: 9,
+                fillColor: "#00E396",
+                strokeColor: "#00E396",
+                radius: 2,
+              },
+              label: {
+                borderWidth: 1,
+                text: "$100 PT",
+                borderColor: "#666",
+                // offsetX: -30,
+                offsetY: -62,
+                style: {
+                  fontSize: "14px",
+                  color: "#666666",
+                  background: "transparent",
+                  textAlign: "center",
+                  fontWeight: "500",
+                  paddingBottom: "5px",
+                },
+              },
+            },
+            {
+              x: "Q2",
+              y: 60,
+              marker: {
+                size: 9,
+                fillColor: "#FF4560",
+                strokeColor: "#FF4560",
+                radius: 2,
+              },
+              label: {
+                borderWidth: 1,
+                text: "$60 PT",
+                borderColor: "#666",
+                offsetY: 67,
+                style: {
+                  fontSize: "14px",
+                  color: "#666666",
+                  background: "transparent",
+                  textAlign: "center",
+                  fontWeight: "500",
+                  paddingBottom: "5px",
+                },
+              },
+            },
+            {
+              x: "Q3",
+              y: 70,
+              marker: {
+                size: 9,
+                fillColor: "#00E396",
+                strokeColor: "#00E396",
+                radius: 2,
+              },
+              label: {
+                borderWidth: 1,
+                text: "$70 PT",
+                borderColor: "#666",
+                offsetY: -61,
+                style: {
+                  fontSize: "14px",
+                  color: "#666666",
+                  background: "transparent",
+                  textAlign: "center",
+                  fontWeight: "500",
+                  paddingBottom: "5px",
+                },
+              },
+            },
+            {
+              x: "Q4",
+              y: 150,
+              marker: {
+                size: 9,
+                fillColor: "#00E396",
+                strokeColor: "#00E396",
+                radius: 2,
+              },
+              label: {
+                borderWidth: 1,
+                text: "$150 PT",
+                borderColor: "#666",
+                className: "custom-label", // Add a custom class
+                offsetX: -30, // Moves the label 10px to the right
+                offsetY: -51,
+                style: {
+                  fontSize: "14px",
+                  color: "#666666",
+                  background: "transparent",
+                  textAlign: "center",
+                  fontWeight: "500",
+                  paddingBottom: "5px",
+                },
+              },
+            },
+          ],
+        },
+        tooltip: {
+          enabled: true,
+          custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+            const dataLabels = [
+              "Start",
+              "$100 PT",
+              "$60 PT",
+              "$70 PT",
+              "$150 PT",
+            ];
+            return `
+            <div class="custom-tooltip">
+             <span style="font-size: 10px; font-weight: bold; letter-spacing: -0.2px; line-height: 15.5px;">Todd Cruset</span><br/>
+             <span style="font-size: 10px; font-weight: 500; letter-spacing: -0.2px; line-height: 15.5px;">Well Fargo</span><br/>
+             <span style="font-size: 8px; font-weight: normal; letter-spacing: -0.16px; line-height: 15.5px;">17% Gain</span><br/>
+             <span style="font-size: 8px; font-weight: normal; letter-spacing: -0.16px; line-height: 15.5px;">19% IRR</span>
+
+            </div>`;
+          },
+        },
+        grid: {
+          show: true,
+          borderColor: "#E5E5E5", // Black color for the borders
+          strokeDashArray: 0, // Solid lines for borders
+          xaxis: {
+            lines: {
+              show: true, // Adds borders for the top and bottom (x-axis lines)
+            },
+          },
+
+          position: "back", // Ensure gridlines appear behind the chart
+        },
+      };
+
+      var chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
+</html>

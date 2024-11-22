@@ -2,15 +2,16 @@ import { tableRow } from "./table.js";
 import { rows } from "./data.js";
 import { dropdownData } from "./data.js";
 import { cardHTML } from "./techSector.js";
-import {toddCrusetCard} from "./toddCruset.js"
+import { toddCrusetCard } from "./toddCruset.js";
 
 // get by id and class
 const dropdownContainer = document.getElementById("dropdown-container");
 const tableBody = document.getElementById("table-body");
 const techCardContainer = document.getElementById("tech-card-container");
-const toddCruesetContainer  = document.getElementById('todd-crueset-container');
-const seoTextBoxBtnContainer  = document.getElementById('seo-text-box-btn-container');
-
+const toddCruesetContainer = document.getElementById("todd-crueset-container");
+const seoTextBoxBtnContainer = document.getElementById(
+  "seo-text-box-btn-container"
+);
 
 // Create the container div
 const search = document.createElement("div");
@@ -155,32 +156,30 @@ for (let i = 0; i < 3; i++) {
 }
 
 // Remove the border-b from the last card
-const allCards = techCardContainer.querySelectorAll('div.border-b'); 
+const allCards = techCardContainer.querySelectorAll("div.border-b");
 if (allCards.length > 0) {
-  allCards[allCards.length - 1].classList.remove('border-b');
+  allCards[allCards.length - 1].classList.remove("border-b");
 }
-
 
 // todd cruset card goes here --
-for (let i = 0; i < 8; i ++ ) {
-  toddCruesetContainer.innerHTML +=toddCrusetCard
+for (let i = 0; i < 8; i++) {
+  toddCruesetContainer.innerHTML += toddCrusetCard;
 }
 
-
-//Seo text box button 
+//Seo text box button
 const seoButtonTexts = [
-    'Market Analysis',
-    'Investment Returns',
-    'Financial Insights',
-    'Market Trends',
-    'High Returns',
-    'New Stock rates'
-]
+  "Market Analysis",
+  "Investment Returns",
+  "Financial Insights",
+  "Market Trends",
+  "High Returns",
+  "New Stock rates",
+];
 
-seoButtonTexts.forEach(text => {
-    const btn = `<button class="text-[12px] font-normal font-['Inter'] px-2 py-1 bg-[#C2EFEB] rounded-[4px] text-[#686868]" >
+seoButtonTexts.forEach((text) => {
+  const btn = `<button class="text-[12px] font-normal font-['Inter'] px-2 py-1 bg-[#C2EFEB] rounded-[4px] text-[#686868]" >
                   ${text}
-                </button>`
+                </button>`;
 
-                seoTextBoxBtnContainer.innerHTML +=btn;
-})
+  seoTextBoxBtnContainer.innerHTML += btn;
+});
