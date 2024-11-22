@@ -28,7 +28,7 @@
     // Create the chart options
     const options = {
       chart: {
-        height: 150,
+        height: 250,
         width: "100%",
         type: "line",
         toolbar: { show: false },
@@ -52,6 +52,11 @@
       },
       yaxis: {
         show: false,
+      },
+      stroke: {
+        curve: "smooth", 
+        width: 5, 
+        colors: ["#0000FF"], 
       },
       annotations: {
         points: data.points.map((point) => ({

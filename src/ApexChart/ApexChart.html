@@ -21,23 +21,12 @@
             height: 400px;
         }
 
-        .custom-tooltip {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 12px;
-            color: #333;
-            text-align: left;
-            white-space: nowrap;
-        }
     </style>
 </head>
 
 <body>
     <div class="flex flex-col">
-        <div id="chart" style="max-width: 800px; margin: auto;"></div>
+        <div id="chart" style="max-width: 500px; margin: auto;"></div>
         <div id="stacked-bar-chart-section">
             <div id="stacked-bar-chart"></div>
         </div>
@@ -81,7 +70,7 @@
             markers: {
                 size: 6,
                 colors: ['#fff'],
-                strokeColors: ['#00E396', '#FF4560', '#00E396', '#00E396', '#FF4560'], // Adjust colors for markers
+                strokeColors: ['#00E396', '#FF4560', '#00E396', '#00E396', '#FF4560'], 
                 strokeWidth: 3,
                 hover: {
                     size: 8
