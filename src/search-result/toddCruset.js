@@ -1,6 +1,6 @@
 // Define the HTML block to be repeated
 export const toddCrusetCard = `
-<div class="bg-[#FFF] py-3 flex items-center gap-[42px] px-2 ">
+<div class="bg-[#FFF] py-3 flex items-center gap-[42px] px-2 mt-6">
           <!-- part 1  -->
           <div class="flex items-center w-fit">
             <!-- left one  -->
