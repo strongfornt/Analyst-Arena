@@ -5,7 +5,7 @@ import { cardHTML } from "./techSector.js";
 import {toddCrusetCard} from "./toddCruset.js"
 
 // get by id and class
-const container = document.getElementById("dropdown-container");
+const dropdownContainer = document.getElementById("dropdown-container");
 const tableBody = document.getElementById("table-body");
 const techCardContainer = document.getElementById("tech-card-container");
 const toddCruesetContainer  = document.getElementById('todd-crueset-container');
@@ -68,7 +68,7 @@ search.appendChild(input);
 // Function to generate the dropdowns dynamically
 function generateDropdowns(data) {
   // Clear any existing content inside the container
-  container.innerHTML = "";
+  dropdownContainer.innerHTML = "";
 
   data.forEach((item) => {
     // Create the label for the dropdown
@@ -132,8 +132,8 @@ function generateDropdowns(data) {
 
     // Append the wrapper to the container
 
-    container.appendChild(wrapper);
-    container.appendChild(search);
+    dropdownContainer.appendChild(wrapper);
+    dropdownContainer.appendChild(search);
   });
 }
 
