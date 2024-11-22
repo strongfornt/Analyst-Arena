@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search result</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   </head>
   <body class="bg-[#F4F4F7]">
     <!-- header part-- -->
@@ -218,12 +212,130 @@
             </div>
           </div>
         </div>
+        <!-- Todd Crueset card coming dynamically  -->
+        <div id="todd-crueset-container" class="mt-6 space-y-1"></div>
 
-        <div id="todd-crueset-container" class="mt-6 space-y-1" >
-
+        <!-- pagination container  -->
+        <div class="flex items-center justify-center mt-[18px]" >
+          <div class="flex items-center gap-[5px]" >
+            <button
+              class="border flex items-center justify-center border-[#F1F1F1] bg-[#FFF] rounded-full h-[32px] w-[32px]"
+            >
+              <svg
+                width="10"
+                height="8"
+                viewBox="0 0 10 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 8L4.94 7.06L1.88667 4L4.94 0.94L4 -1.56241e-07L2.04622e-06 4L4 8Z"
+                  fill="#333333"
+                />
+                <path
+                  d="M8.39334 8L9.33334 7.06L6.28001 4L9.33334 0.94L8.39334 -1.56241e-07L4.39334 4L8.39334 8Z"
+                  fill="#333333"
+                />
+              </svg>
+            </button>
+            <button
+              class="border flex items-center justify-center border-[#F1F1F1] bg-[#FFF] rounded-full h-[32px] w-[32px]"
+            >
+              <svg
+                width="5"
+                height="8"
+                viewBox="0 0 5 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.06 8L5 7.06L1.94667 4L5 0.94L4.06 8.21774e-08L0.0599996 4L4.06 8Z"
+                  fill="black"
+                />
+              </svg>
+            </button>
+            <button
+            
+              class="border bg-[#331E36] font-['Open Sans'] border-[#F1F1F1] text-white text-[13px] font-semibold rounded-full h-[32px] w-[32px]"
+            >
+              1
+            </button>
+            <button
+              class="border bg-[#FFF] text-[#333333] border-[#F1F1F1] text-[13px] font-semibold rounded-full h-[32px] w-[32px]"
+            >
+              2
+            </button>
+            <button
+              class="border bg-[#FFF] text-[#333333] border-[#F1F1F1] text-[13px] font-semibold rounded-full h-[32px] w-[32px]"
+            >
+              3
+            </button>
+            <button
+              class="border bg-[#FFF] text-[#333333] border-[#F1F1F1] text-[13px] font-semibold rounded-[8px] h-[32px] w-[32px]"
+            >
+              ...
+            </button>
+            <button
+              class="border bg-[#FFF] text-[#333333] border-[#F1F1F1] text-[13px] font-semibold rounded-full h-[32px] w-[32px]"
+            >
+              10
+            </button>
+            <button
+              class="border flex items-center justify-center border-[#F1F1F1] bg-[#FFF] rounded-full h-[32px] w-[32px]"
+            >
+              <svg
+                width="5"
+                height="8"
+                viewBox="0 0 5 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.94 0L0 0.94L3.05333 4L0 7.06L0.94 8L4.94 4L0.94 0Z"
+                  fill="black"
+                />
+              </svg>
+            </button>
+            <button
+              class="border flex items-center justify-center border-[#F1F1F1] bg-[#FFF] rounded-full h-[32px] w-[32px]"
+            >
+              <svg
+                width="10"
+                height="8"
+                viewBox="0 0 10 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.33331 -8.21774e-08L4.39331 0.94L7.44664 4L4.39331 7.06L5.33331 8L9.33331 4L5.33331 -8.21774e-08Z"
+                  fill="#333333"
+                />
+                <path
+                  d="M0.94 -8.21774e-08L8.21774e-08 0.94L3.05333 4L6.17205e-07 7.06L0.940001 8L4.94 4L0.94 -8.21774e-08Z"
+                  fill="#333333"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-        <!-- Todd Crueset card  -->
 
+        <!-- seo text box container  -->
+         <div class="px-[38px] pt-[18px] mt-[21px] pb-[20px] rounded-[16px] bg-[#FFF]" >
+            <!-- heading  -->
+             <h3 class="text-[#0A0A0A] text-[16px] font-normal" >SEO Textbox</h3>
+             <!-- 2nd title  -->
+
+             <p class="text-[#8C92A3] font-['Inter'] font-normal text-[14px] mt-3  pl-[15px] py-[10px] pr-[69px] border border-[#E6E6E6] rounded-[4px]" >
+              With the market at 10% returns, this analyst stands out with a remarkable 17%, consistently outperforming expectations.
+             </p>
+             <button class="bg-[#467599] rounded-[4px] my-6 px-[16px] py-1 text-[12px] font-normal font-['Inter'] text-[#FFFFFF]" >
+              Explore more
+             </button>
+             <h4 class="text-[#0A0A0A] text-[16px] mb-3 font-normal" >Recommended Meta Tags</h4>
+             <div id="seo-text-box-btn-container" class="flex items-center gap-2" >
+               
+             </div>
+         </div>
       </div>
 
       <!-- right side  -->

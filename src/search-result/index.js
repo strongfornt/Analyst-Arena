@@ -9,6 +9,8 @@ const container = document.getElementById("dropdown-container");
 const tableBody = document.getElementById("table-body");
 const techCardContainer = document.getElementById("tech-card-container");
 const toddCruesetContainer  = document.getElementById('todd-crueset-container');
+const seoTextBoxBtnContainer  = document.getElementById('seo-text-box-btn-container');
+
 
 // Create the container div
 const search = document.createElement("div");
@@ -163,3 +165,22 @@ if (allCards.length > 0) {
 for (let i = 0; i < 8; i ++ ) {
   toddCruesetContainer.innerHTML +=toddCrusetCard
 }
+
+
+//Seo text box button 
+const seoButtonTexts = [
+    'Market Analysis',
+    'Investment Returns',
+    'Financial Insights',
+    'Market Trends',
+    'High Returns',
+    'New Stock rates'
+]
+
+seoButtonTexts.forEach(text => {
+    const btn = `<button class="text-[12px] font-normal font-['Inter'] px-2 py-1 bg-[#C2EFEB] rounded-[4px] text-[#686868]" >
+                  ${text}
+                </button>`
+
+                seoTextBoxBtnContainer.innerHTML +=btn;
+})
