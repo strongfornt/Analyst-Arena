@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Custom Line Chart with Tooltip</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <style>
+    #chart {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="chart"></div>
+
+  <script>
+    // Data for the chart
+    const data = {
+      min: 6.12,
+      max: 12.75,
+      points: [
+        { value: 7.9, label: "Analyst PT", color: "#00C851", percentage: "+42%" },
+        { value: 10.4, label: "Consensus PT", color: "#ff4444", percentage: "+64%" },
+      ],
+    };
+
+    // Create the chart options
+    const options = {
+      chart: {
+        height: 150,
+        width: "100%",
+        type: "line",
+        toolbar: { show: false },
+      },
+      series: [
+        {
+          name: "Values",
+          data: [
+            { x: data.points[0].value, y: 0 },
+            { x: data.points[1].value, y: 0 },
+          ],
+        },
+      ],
+      xaxis: {
+        type: "numeric",
+        min: data.min,
+        max: data.max,
+        labels: {
+          formatter: (value) => `$${value.toFixed(2)}`,
+        },
+      },
+      yaxis: {
+        show: false,
+      },
+      annotations: {
+        points: data.points.map((point) => ({
+          x: point.value,
+          y: 0,
+          marker: {
+            size: 8,
+            fillColor: point.color,
+          },
+        })),
+      },
+      tooltip: {
+        enabled: true,
+        custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+          const point = data.points[dataPointIndex];
+          return `<div style="background: #fff; border: 1px solid #ccc; padding: 8px; font-size: 12px;">
+                    <strong>${point.label}</strong><br>
+                    Value: $${point.value}<br>
+                    ${point.percentage}
+                  </div>`;
+        },
+      },
+      grid: {
+        show: false,
+      },
+    };
+
+    // Render the chart
+    const chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+  </script>
+</body>
+</html>
