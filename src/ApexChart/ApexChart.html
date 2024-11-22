@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexCharts with Fixed Labels and Custom Tooltips</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+    #chart {
+      width: 800px;
+      height: 400px;
+    }
+    /* Custom Tooltip Design */
+    .apexcharts-tooltip {
+      padding: 10px;
+      background: #fff; /* White background */
+      border: 1px solid #ddd; /* Border for tooltip */
+      border-radius: 5px;
+      color: #333;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adding a shadow for clarity */
+      min-width: 150px; /* Optional: control width */
+    }
+    /* For arrow of the tooltip */
+    .apexcharts-tooltip .apexcharts-tooltip-arrow {
+      border-color: #ddd transparent transparent transparent;
+    }
+  </style>
+</head>
+<body>
+  <div id="chart"></div>
+
+  <script>
+    // Example Dynamic Data
+    const data = [
+      { x: 0, y: 0 },  // Start point at 0
+      { x: 1, y: 80 },  // Between 0 and Q1
+      { x: 2, y: 100 }, // Between Q1 and Q2
+      { x: 3, y: 120 }, // Between Q2 and Q3
+      { x: 4, y: 150 }, // Between Q3 and Q4
+      { x: 5, y: 90 },  // Beyond Q4 but still on the graph
+    ];
+
+    // Custom Tooltips and Markers for Points at Q1, Q2, Q3, Q4
+    const points = [
+      { x: 1, label: 'Q1', color: 'green', value: '$100 PT', name: 'Todd Cruset', company: 'Well Fargo', gain: '17% Gain', irr: '19% IRR' },
+      { x: 2, label: 'Q2', color: 'red', value: '$60 PT', name: 'Jane Doe', company: 'XYZ Corp', gain: '10% Gain', irr: '12% IRR' },
+      { x: 3, label: 'Q3', color: 'blue', value: '$70 PT', name: 'John Smith', company: 'ABC Inc.', gain: '15% Gain', irr: '14% IRR' },
+      { x: 4, label: 'Q4', color: 'green', value: '$150 PT', name: 'Alice Brown', company: 'TechCo', gain: '25% Gain', irr: '22% IRR' },
+    ];
+
+    const options = {
+      chart: {
+        type: "line",
+        toolbar: { show: false },
+        height: 400,
+      },
+      grid: {
+        padding: { bottom: 20 },
+      },
+      xaxis: {
+        categories: ["0", "Q1", "Q2", "Q3", "Q4"], 
+        labels: {
+          show: true,
+          style: { fontSize: "12px", colors: "#333" },
+          rotate: 0, 
+        },
+        tickAmount: 5, 
+        axisBorder: {
+          show: true, 
+          color: '#ddd', 
+        },
+      },
+      yaxis: {
+        min: 0,
+        max: 200,
+        labels: {
+          formatter: function (value) {
+            return `$${value}`;
+          },
+          style: { fontSize: "12px" },
+        },
+      },
+      stroke: {
+        curve: "smooth",
+        width: 2,
+      },
+      markers: {
+        size: 5,
+        colors: points.map(point => point.color), // Dynamic marker colors
+        strokeColors: ['#fff'],
+        strokeWidth: 2,
+        shape: 'circle',
+      },
+      tooltip: {
+        enabled: true,
+        custom: function({ seriesIndex, dataPointIndex, w }) {
+          const point = points.find(p => p.x === data[dataPointIndex].x); // Find the point data by matching x value
+          if (!point) return ''; // No tooltip for other points
+
+          return `
+            <div class="apexcharts-tooltip">
+              <strong>${point.value}</strong><br>
+              <span>${point.label}</span><br>
+              <span>${point.name}<br>${point.company}</span><br>
+              <span>${point.gain}</span><br>
+              <span>${point.irr}</span>
+            </div>
+          `;
+        },
+      },
+      series: [{
+        name: "Price",
+        data: data.map(item => item.y),
+      }],
+    };
+
+    const chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+  </script>
+</body>
+</html>
