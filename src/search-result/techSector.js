@@ -1,4 +1,4 @@
- export const cardHTML = `
+export const cardHTML = `
 <div class="px-2 py-4 flex items-center justify-between border-b border-[#D4D4D4] rounded-[4px]">
   <!-- left side -->
   <div>
@@ -48,6 +48,3 @@
   </div>
 </div>
 `;
-
-
-
