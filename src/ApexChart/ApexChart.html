@@ -1,493 +1,477 @@
 <!DOCTYPE html>
 <html class="font-['Roboto']" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Styled Annotations</title>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        margin: 0;
-        background-color: #fff;
-      }
-      /* 
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Annotations</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=DM+Sans:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #ffff;
+    }
+
+    /* 
         #chart {
             width: 800px;
             height: 400px;
         } */
-      #chart {
-        max-width: 800px;
-        margin: auto;
+    #chart {
+      max-width: 800px;
+      margin: auto;
 
-        border-radius: 8px;
-        padding: 20px;
-      }
+      border-radius: 8px;
+      padding: 20px;
+    }
 
-      .custom-tooltip {
-        padding: 5.053px;
-        border: 1px solid #666;
-        background: #fff;
-        text-align: left;
-        font-size: 12px;
-        color: #666;
-        border-radius: 4px;
-        width: fit-content;
-      }
-    </style>
-  </head>
+    .custom-tooltip {
+      padding: 5.053px;
+      border: 1px solid #666;
+      background: #fff;
+      text-align: left;
+      font-size: 12px;
+      color: #666;
+      border-radius: 4px;
+      width: fit-content;
+    }
+  </style>
+</head>
 
-  <body>
-    <div class="flex flex-col">
-      <div id="chart" class="relative">
-        <div class="custom-tooltip absolute left-[9.5rem] bottom-44">
-          <span
-            style="
+<body>
+  <div class="flex flex-col">
+    <div id="chart" class="relative">
+      <div class="custom-tooltip absolute left-[9.5rem] bottom-44">
+        <span style="
               font-size: 10px;
               font-weight: bold;
               letter-spacing: -0.2px;
               line-height: 15.5px;
-            "
-            >Todd Cruset</span
-          ><br />
-          <span
-            style="
+            ">Todd Cruset</span><br />
+        <span style="
               font-size: 10px;
               font-weight: 500;
               letter-spacing: -0.2px;
               line-height: 15.5px;
-            "
-            >Well Fargo</span
-          ><br />
-          <span
-            style="
+            ">Well Fargo</span><br />
+        <span style="
               font-size: 8px;
               font-weight: normal;
               letter-spacing: -0.16px;
               line-height: 15.5px;
-            "
-            >17% Gain</span
-          ><br />
-          <span
-            style="
+            ">17% Gain</span><br />
+        <span style="
               font-size: 8px;
               font-weight: normal;
               letter-spacing: -0.16px;
               line-height: 15.5px;
-            "
-            >19% IRR</span
-          >
-        </div>
-        <div class="custom-tooltip absolute left-[23.8rem] bottom-[9.6rem]">
-          <span
-            style="
-              font-size: 10px;
-              font-weight: bold;
-              letter-spacing: -0.2px;
-              line-height: 15.5px;
-            "
-            >Todd Cruset</span
-          ><br />
-          <span
-            style="
-              font-size: 10px;
-              font-weight: 500;
-              letter-spacing: -0.2px;
-              line-height: 15.5px;
-            "
-            >Well Fargo</span
-          ><br />
-          <span
-            style="
-              font-size: 8px;
-              font-weight: normal;
-              letter-spacing: -0.16px;
-              line-height: 15.5px;
-            "
-            >17% Gain</span
-          ><br />
-          <span
-            style="
-              font-size: 8px;
-              font-weight: normal;
-              letter-spacing: -0.16px;
-              line-height: 15.5px;
-            "
-            >19% IRR</span
-          >
-        </div>
-        <div class="custom-tooltip absolute right-44 bottom-[3.8rem]">
-          <span
-            style="
-              font-size: 10px;
-              font-weight: bold;
-              letter-spacing: -0.2px;
-              line-height: 15.5px;
-            "
-            >Todd Cruset</span
-          ><br />
-          <span
-            style="
-              font-size: 10px;
-              font-weight: 500;
-              letter-spacing: -0.2px;
-              line-height: 15.5px;
-            "
-            >Well Fargo</span
-          ><br />
-          <span
-            style="
-              font-size: 8px;
-              font-weight: normal;
-              letter-spacing: -0.16px;
-              line-height: 15.5px;
-            "
-            >17% Gain</span
-          ><br />
-          <span
-            style="
-              font-size: 8px;
-              font-weight: normal;
-              letter-spacing: -0.16px;
-              line-height: 15.5px;
-            "
-            >19% IRR</span
-          >
-        </div>
-        <div class="custom-tooltip absolute -right-5 bottom-36">
-          <span
-            style="
-              font-size: 10px;
-              font-weight: bold;
-              letter-spacing: -0.2px;
-              line-height: 15.5px;
-            "
-            >Todd Cruset</span
-          ><br />
-          <span
-            style="
-              font-size: 10px;
-              font-weight: 500;
-              letter-spacing: -0.2px;
-              line-height: 15.5px;
-            "
-            >Well Fargo</span
-          ><br />
-          <span
-            style="
-              font-size: 8px;
-              font-weight: normal;
-              letter-spacing: -0.16px;
-              line-height: 15.5px;
-            "
-            >17% Gain</span
-          ><br />
-          <span
-            style="
-              font-size: 8px;
-              font-weight: normal;
-              letter-spacing: -0.16px;
-              line-height: 15.5px;
-            "
-            >19% IRR</span
-          >
-        </div>
+            ">19% IRR</span>
       </div>
-      <div id="stacked-bar-chart-section">
-        <div id="stacked-bar-chart"></div>
+      <div class="custom-tooltip absolute left-[23.8rem] bottom-[9.6rem]">
+        <span style="
+              font-size: 10px;
+              font-weight: bold;
+              letter-spacing: -0.2px;
+              line-height: 15.5px;
+            ">Todd Cruset</span><br />
+        <span style="
+              font-size: 10px;
+              font-weight: 500;
+              letter-spacing: -0.2px;
+              line-height: 15.5px;
+            ">Well Fargo</span><br />
+        <span style="
+              font-size: 8px;
+              font-weight: normal;
+              letter-spacing: -0.16px;
+              line-height: 15.5px;
+            ">17% Gain</span><br />
+        <span style="
+              font-size: 8px;
+              font-weight: normal;
+              letter-spacing: -0.16px;
+              line-height: 15.5px;
+            ">19% IRR</span>
+      </div>
+      <div class="custom-tooltip absolute right-44 bottom-[3.8rem]">
+        <span style="
+              font-size: 10px;
+              font-weight: bold;
+              letter-spacing: -0.2px;
+              line-height: 15.5px;
+            ">Todd Cruset</span><br />
+        <span style="
+              font-size: 10px;
+              font-weight: 500;
+              letter-spacing: -0.2px;
+              line-height: 15.5px;
+            ">Well Fargo</span><br />
+        <span style="
+              font-size: 8px;
+              font-weight: normal;
+              letter-spacing: -0.16px;
+              line-height: 15.5px;
+            ">17% Gain</span><br />
+        <span style="
+              font-size: 8px;
+              font-weight: normal;
+              letter-spacing: -0.16px;
+              line-height: 15.5px;
+            ">19% IRR</span>
+      </div>
+      <div class="custom-tooltip absolute -right-5 bottom-36">
+        <span style="
+              font-size: 10px;
+              font-weight: bold;
+              letter-spacing: -0.2px;
+              line-height: 15.5px;
+            ">Todd Cruset</span><br />
+        <span style="
+              font-size: 10px;
+              font-weight: 500;
+              letter-spacing: -0.2px;
+              line-height: 15.5px;
+            ">Well Fargo</span><br />
+        <span style="
+              font-size: 8px;
+              font-weight: normal;
+              letter-spacing: -0.16px;
+              line-height: 15.5px;
+            ">17% Gain</span><br />
+        <span style="
+              font-size: 8px;
+              font-weight: normal;
+              letter-spacing: -0.16px;
+              line-height: 15.5px;
+            ">19% IRR</span>
       </div>
     </div>
-
-    <script>
-      var options = {
-        chart: {
-          type: "line",
-          height: 401,
-          width: 814,
-          zoom: {
-            enabled: false,
-            type: "x",
-          },
-          toolbar: {
-            show: false,
-          },
-        },
-        series: [
-          {
-            name: "Stock Price",
-            data: [0, 100, 60, 70, 150],
-          },
-        ],
-        xaxis: {
-          categories: ["", "Q1", "Q2", "Q3", "Q4"],
-          labels: {
-            style: {
-              fontSize: "12px",
-            },
-          },
-        },
-        yaxis: {
-          min: 0,
-          max: 250,
-          labels: {
-            formatter: function (value) {
-              return `$${value}`;
-            },
-            style: {
-              fontSize: "12px",
-            },
-          },
-        },
-        markers: {
-          size: 0,
-          colors: ["#fff"],
-          strokeColors: ["", "#00E396", "#FF4560", "#00E396", "#00E396"],
-          strokeWidth: 3,
-          hover: {
-            size: 0,
-          },
-        },
-        stroke: {
-          curve: "smooth",
-          width: 2,
-          colors: ["#467599"],
-        },
-        annotations: {
-          points: [
-            {
-              x: "Q1",
-              y: 100,
-              marker: {
-                size: 9,
-                fillColor: "#00E396",
-                strokeColor: "#00E396",
-                radius: 2,
-              },
-              label: {
-                borderWidth: 1,
-                text: "$100 PT",
-                borderColor: "#666",
-                // offsetX: -30,
-                offsetY: -62,
-                style: {
-                  fontSize: "14px",
-                  color: "#666666",
-                  background: "transparent",
-                  textAlign: "center",
-                  fontWeight: "500",
-                  paddingBottom: "5px",
-                },
-              },
-            },
-            {
-              x: "Q2",
-              y: 60,
-              marker: {
-                size: 9,
-                fillColor: "#FF4560",
-                strokeColor: "#FF4560",
-                radius: 2,
-              },
-              label: {
-                borderWidth: 1,
-                text: "$60 PT",
-                borderColor: "#666",
-                offsetY: 67,
-                style: {
-                  fontSize: "14px",
-                  color: "#666666",
-                  background: "transparent",
-                  textAlign: "center",
-                  fontWeight: "500",
-                  paddingBottom: "5px",
-                },
-              },
-            },
-            {
-              x: "Q3",
-              y: 70,
-              marker: {
-                size: 9,
-                fillColor: "#00E396",
-                strokeColor: "#00E396",
-                radius: 2,
-              },
-              label: {
-                borderWidth: 1,
-                text: "$70 PT",
-                borderColor: "#666",
-                offsetY: -61,
-                style: {
-                  fontSize: "14px",
-                  color: "#666666",
-                  background: "transparent",
-                  textAlign: "center",
-                  fontWeight: "500",
-                  paddingBottom: "5px",
-                },
-              },
-            },
-            {
-              x: "Q4",
-              y: 150,
-              marker: {
-                size: 9,
-                fillColor: "#00E396",
-                strokeColor: "#00E396",
-                radius: 2,
-              },
-              label: {
-                borderWidth: 1,
-                text: "$150 PT",
-                borderColor: "#666",
-                className: "custom-label", // Add a custom class
-                offsetX: -30, // Moves the label 10px to the right
-                offsetY: -51,
-                style: {
-                  fontSize: "14px",
-                  color: "#666666",
-                  background: "transparent",
-                  textAlign: "center",
-                  fontWeight: "500",
-                  paddingBottom: "5px",
-                },
-              },
-            },
-          ],
-        },
-        tooltip: {
-          enabled: true,
-          custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-            const dataLabels = [
-              "Start",
-              "$100 PT",
-              "$60 PT",
-              "$70 PT",
-              "$150 PT",
-            ];
-            //will appear this tooltip when need
-            // <div class="custom-tooltip">
-            //    <span style="font-size: 10px; font-weight: bold; letter-spacing: -0.2px; line-height: 15.5px;">Todd Cruset</span><br/>
-            //    <span style="font-size: 10px; font-weight: 500; letter-spacing: -0.2px; line-height: 15.5px;">Well Fargo</span><br/>
-            //    <span style="font-size: 8px; font-weight: normal; letter-spacing: -0.16px; line-height: 15.5px;">17% Gain</span><br/>
-            //    <span style="font-size: 8px; font-weight: normal; letter-spacing: -0.16px; line-height: 15.5px;">19% IRR</span>
-            //   </div>
-            return `
-            
-           `;
-          },
-        },
-        grid: {
-          show: true,
-          borderColor: "#E5E5E5", // Black color for the borders
-          strokeDashArray: 0, // Solid lines for borders
-          xaxis: {
-            lines: {
-              show: true,
-            },
-          },
-
-          position: "back",
-        },
-      };
-
-      var chart = new ApexCharts(document.querySelector("#chart"), options);
-      chart.render();
-    </script>
-
-    <!-- bar chart -->
-    <script>
-      var options2 = {
-        series: [
-          { name: "Strong Buy", data: [8, 8, 8, 8] },
-          { name: "Buy", data: [12, 12, 12, 12] },
-          { name: "Hold", data: [6, 6, 6, 6] },
-          { name: "Sell", data: [4, 4, 4, 4] },
-          { name: "Strong Sell", data: [2, 2, 2, 2] },
-        ],
-        chart: {
-          type: "bar",
-          stacked: true,
-          height: 350,
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: "20%",
-            dataLabels: {
-              position: "top",
-            },
-          },
-        },
-        xaxis: {
-          categories: ["Q1", "Q2", "Q3", "Q4"],
-          show: true,
-          axisBorder: {
-            show: false,
-          },
-          axisTicks: {
-            show: false,
-          },
-
-          labels: {
-            offsetY: -125,
-          },
-        },
-        yaxis: {
-          title: {
-            text: "Ratings",
-          },
-          show: false,
-          axisBorder: {
-            show: false,
-          },
-          axisTicks: {
-            show: false,
-          },
-        },
-        grid: {
-          show: false,
-        },
-        legend: {
-          position: "bottom",
-          horizontalAlign: "center",
-        },
-        fill: {
-          opacity: 1,
-        },
-        colors: ["#00C851", "#33B5E5", "#bdbdbd", "#ff4444", "#CC0000"],
-        dataLabels: {
+    <div id="stacked-bar-chart-section">
+      <div id="stacked-bar-chart" class="relative">
+        <div
+          class="absolute custom-tootip bottom-[7rem] left-[9.3rem] *:text-sm p-[10px] bg-[#F5F5F5] rounded-md space-y-2">
+          <p class="text-[16px] font-medium">32 ratings in Q1</p>
+          <div class="flex items-center justify-between">
+            <p>Avg Rating:</p>
+            <p>3.4</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p>Avg PT</p>
+            <p>$60</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p>Avg Upside</p>
+            <p>22%</p>
+          </div>
+        </div>
+        <div
+          class="absolute custom-tootip bottom-[7rem] left-[21.3rem] *:text-sm space-y-2 bg-[#F5F5F5] rounded-md p-[10px]">
+          <p class="text-[16px] font-medium">32 ratings in Q2</p>
+          <div class="flex items-center justify-between">
+            <p>Avg Rating:</p>
+            <p>3.4</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p>Avg PT</p>
+            <p>$60</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p>Avg Upside</p>
+            <p>22%</p>
+          </div>
+        </div>
+        <div
+          class="absolute custom-tootip bottom-[7rem] left-[33.5rem] *:text-sm space-y-2 bg-[#F5F5F5] rounded-md p-[10px]">
+          <p class="text-[16px] font-medium">32 ratings in Q3</p>
+          <div class="flex items-center justify-between">
+            <p>Avg Rating:</p>
+            <p>3.4</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p>Avg PT</p>
+            <p>$60</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <p>Avg Upside</p>
+            <p>22%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var options = {
+      chart: {
+        type: "line",
+        height: 401,
+        width: 814,
+        zoom: {
           enabled: false,
+          type: "x",
         },
-        tooltip: {
-          custom: function ({ seriesIndex, dataPointIndex }) {
-            // Corrected tooltip return format
-            return `
-                    <div style="padding: 10px; border: 1px solid #ccc; background: #fff;">
-                        <p><strong>${options2.xaxis.categories[dataPointIndex]}</strong></p>
-                        <p><strong>${options2.series[seriesIndex].name}:</strong> ${options2.series[seriesIndex].data[dataPointIndex]}</p>
-                        <p>Avg Rating: 3.4</p>
-                        <p>Avg PT: $60</p>
-                        <p>Avg Upside: 22%</p>
-                    </div>
-                `;
+        toolbar: {
+          show: false,
+        },
+      },
+      series: [
+        {
+          name: "Stock Price",
+          data: [0, 100, 60, 70, 150],
+        },
+      ],
+      xaxis: {
+        categories: ["", "Q1", "Q2", "Q3", "Q4"],
+        labels: {
+          style: {
+            fontSize: "12px",
           },
         },
-      };
+      },
+      yaxis: {
+        min: 0,
+        max: 250,
+        labels: {
+          formatter: function (value) {
+            return `$${value}`;
+          },
+          style: {
+            fontSize: "12px",
+          },
+        },
+      },
+      markers: {
+        size: 0,
+        colors: ["#fff"],
+        strokeColors: ["", "#00E396", "#FF4560", "#00E396", "#00E396"],
+        strokeWidth: 3,
+        hover: {
+          size: 0,
+        },
+      },
+      stroke: {
+        curve: "smooth",
+        width: 2,
+        colors: ["#467599"],
+      },
+      annotations: {
+        points: [
+          {
+            x: "Q1",
+            y: 100,
+            marker: {
+              size: 9,
+              fillColor: "#00E396",
+              strokeColor: "#00E396",
+              radius: 2,
+            },
+            label: {
+              borderWidth: 1,
+              text: "$100 PT",
+              borderColor: "#666",
+              // offsetX: -30,
+              offsetY: -62,
+              style: {
+                fontSize: "14px",
+                color: "#666666",
+                background: "transparent",
+                textAlign: "center",
+                fontWeight: "500",
+                paddingBottom: "5px",
+              },
+            },
+          },
+          {
+            x: "Q2",
+            y: 60,
+            marker: {
+              size: 9,
+              fillColor: "#FF4560",
+              strokeColor: "#FF4560",
+              radius: 2,
+            },
+            label: {
+              borderWidth: 1,
+              text: "$60 PT",
+              borderColor: "#666",
+              offsetY: 67,
+              style: {
+                fontSize: "14px",
+                color: "#666666",
+                background: "transparent",
+                textAlign: "center",
+                fontWeight: "500",
+                paddingBottom: "5px",
+              },
+            },
+          },
+          {
+            x: "Q3",
+            y: 70,
+            marker: {
+              size: 9,
+              fillColor: "#00E396",
+              strokeColor: "#00E396",
+              radius: 2,
+            },
+            label: {
+              borderWidth: 1,
+              text: "$70 PT",
+              borderColor: "#666",
+              offsetY: -61,
+              style: {
+                fontSize: "14px",
+                color: "#666666",
+                background: "transparent",
+                textAlign: "center",
+                fontWeight: "500",
+                paddingBottom: "5px",
+              },
+            },
+          },
+          {
+            x: "Q4",
+            y: 150,
+            marker: {
+              size: 9,
+              fillColor: "#00E396",
+              strokeColor: "#00E396",
+              radius: 2,
+            },
+            label: {
+              borderWidth: 1,
+              text: "$150 PT",
+              borderColor: "#666",
+              className: "custom-label", // Add a custom class
+              offsetX: -30, // Moves the label 10px to the right
+              offsetY: -51,
+              style: {
+                fontSize: "14px",
+                color: "#666666",
+                background: "transparent",
+                textAlign: "center",
+                fontWeight: "500",
+                paddingBottom: "5px",
+              },
+            },
+          },
+        ],
+      },
+      tooltip: {
+        enabled: true,
+        custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+          const dataLabels = [
+            "Start",
+            "$100 PT",
+            "$60 PT",
+            "$70 PT",
+            "$150 PT",
+          ];
+          return ``;
+        },
+      },
+      grid: {
+        show: true,
+        borderColor: "#E5E5E5",
+        strokeDashArray: 0,
+        xaxis: {
+          lines: {
+            show: true,
+          },
+        },
 
-      var chart2 = new ApexCharts(
-        document.querySelector("#stacked-bar-chart"),
-        options2
-      );
-      chart2.render();
-    </script>
-  </body>
+        position: "back",
+      },
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+  </script>
+
+
+  <!-- bar chart -->
+  <script>
+    var options2 = {
+      series: [
+        { name: "Strong Buy", data: [8, 8, 8, 8] },
+        { name: "Buy", data: [12, 12, 12, 12] },
+        { name: "Hold", data: [6, 6, 6, 6] },
+        { name: "Sell", data: [4, 4, 4, 4] },
+        { name: "Strong Sell", data: [2, 2, 2, 2] },
+      ],
+      chart: {
+        type: "bar",
+        stacked: true,
+        height: 350,
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '20%',
+          dataLabels: {
+            position: 'top'
+          }
+        },
+      },
+      xaxis: {
+        categories: ["Q1", "Q2", "Q3", "Q4"],
+        show: true,
+        axisBorder: {
+          show: false,
+        },
+        axisTicks: {
+          show: false,
+        },
+
+        labels: {
+          offsetY: -125,
+        },
+      },
+      yaxis: {
+        title: {
+          text: "Ratings",
+        },
+        show: false,
+        axisBorder: {
+          show: false,
+        },
+        axisTicks: {
+          show: false,
+        },
+      },
+      grid: {
+        show: false,
+      },
+      legend: {
+        position: "bottom",
+        horizontalAlign: "center",
+      },
+      fill: {
+        opacity: 1,
+      },
+      colors: ["#00C851", "#33B5E5", "#bdbdbd", "#ff4444", "#CC0000"],
+      dataLabels: {
+        enabled: false,
+      },
+      tooltip: {
+        custom: function ({ seriesIndex, dataPointIndex }) {
+          // Corrected tooltip return format
+          return ``;
+        },
+      },
+    };
+
+    var chart2 = new ApexCharts(document.querySelector("#stacked-bar-chart"), options2);
+    chart2.render();
+  </script>
+
+</body>
+
 </html>
