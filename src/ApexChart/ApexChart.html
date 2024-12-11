@@ -224,11 +224,11 @@
       series: [
         {
           name: "Stock Price",
-          data: [0, 100, 60, 70, 150],
+          data: [0,60,100,130,60,80,140,80,170],
         },
       ],
       xaxis: {
-        categories: ["", "Q1", "Q2", "Q3", "Q4"],
+        categories: ["","" ,"Q1", "","Q2","", "Q3","","Q4"],
         labels: {
           style: {
             fontSize: "12px",
@@ -265,7 +265,7 @@
         points: [
           {
             x: "Q1",
-            y: 100,
+            y: 101,
             marker: {
               size: 9,
               fillColor: "#00E396",
@@ -307,14 +307,14 @@
                 color: "#666666",
                 background: "transparent",
                 textAlign: "center",
-                fontWeight: "500",
+                fontWeight: "300",
                 paddingBottom: "5px",
               },
             },
           },
           {
             x: "Q3",
-            y: 70,
+            y: 140,
             marker: {
               size: 9,
               fillColor: "#00E396",
@@ -338,7 +338,7 @@
           },
           {
             x: "Q4",
-            y: 150,
+            y: 170,
             marker: {
               size: 9,
               fillColor: "#00E396",
@@ -400,11 +400,11 @@
   <script>
     var options2 = {
       series: [
-        { name: "Strong Buy", data: [8, 8, 8, 8] },
-        { name: "Buy", data: [12, 12, 12, 12] },
-        { name: "Hold", data: [6, 6, 6, 6] },
-        { name: "Sell", data: [4, 4, 4, 4] },
-        { name: "Strong Sell", data: [2, 2, 2, 2] },
+        { name: "Strong Buy", data: [4, 4, 4, 4] },
+        { name: "Buy", data: [5, 5, 5, 5]},
+        { name: "Hold", data: [2, 2, 2, 2] },
+        { name: "Sell", data: [10, 10, 10, 10] },
+        { name: "Strong Sell", data: [10, 10, 10, 10]},
       ],
       chart: {
         type: "bar",
@@ -456,7 +456,7 @@
       fill: {
         opacity: 1,
       },
-      colors: ["#00C851", "#33B5E5", "#bdbdbd", "#ff4444", "#CC0000"],
+      colors: [ "#EF4543", "#E0A6D7","#B9B9B9", "#6BE99D", "#23C55E"],
       dataLabels: {
         enabled: false,
       },
