@@ -19,12 +19,6 @@
       margin: 0;
       background-color: #ffff;
     }
-
-    /* 
-        #chart {
-            width: 800px;
-            height: 400px;
-        } */
     #chart {
       max-width: 800px;
       margin: auto;
@@ -49,7 +43,7 @@
 <body>
   <div class="flex flex-col">
     <div id="chart" class="relative">
-      <div class="custom-tooltip absolute left-[9.5rem] bottom-44">
+      <div class="custom-tooltip absolute left-[10.5rem] bottom-[11.5rem]">
         <span style="
               font-size: 10px;
               font-weight: bold;
@@ -75,7 +69,23 @@
               line-height: 15.5px;
             ">19% IRR</span>
       </div>
-      <div class="custom-tooltip absolute left-[23.8rem] bottom-[9.6rem]">
+      <div class="absolute text-sm left-[14.85rem] bottom-52 z-10">
+        <div class="flex flex-col justify-center items-center text-gray-500">
+          <div class="border-b-2 border-gray-500/70">
+            <p>$100PT</p>
+            <!-- <p>+16%</p> -->
+          </div>
+          <div class="-space-y-5 *:font-bold text-xl -mt-3">
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="custom-tooltip absolute left-[23.8rem] z-20 bottom-[9.6rem]">
         <span style="
               font-size: 10px;
               font-weight: bold;
@@ -101,7 +111,21 @@
               line-height: 15.5px;
             ">19% IRR</span>
       </div>
-      <div class="custom-tooltip absolute right-44 bottom-[3.8rem]">
+      <div class="absolute text-sm left-[26.81rem] bottom-[3.8rem] z-10">
+        <div class="flex flex-col-reverse justify-center items-center text-gray-500">
+          <div class="border-t-2 border-gray-500/70">
+            <p>$60PT</p>
+            <!-- <p>+16%</p> -->
+          </div>
+          <div class="-space-y-5 *:font-bold text-xl -mt-3">
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="custom-tooltip absolute right-[11.68rem] bottom-[14.6rem]">
         <span style="
               font-size: 10px;
               font-weight: bold;
@@ -127,7 +151,23 @@
               line-height: 15.5px;
             ">19% IRR</span>
       </div>
-      <div class="custom-tooltip absolute -right-5 bottom-36">
+      <div class="absolute text-sm right-[8.9rem] bottom-[16.5rem] z-10">
+        <div class="flex flex-col justify-ce6nter items-center text-gray-500">
+          <div class="border-b-2 border-gray-500/70">
+            <p>$70PT</p>
+            <!-- <p>+16%</p> -->
+          </div>
+          <div class="-space-y-5 *:font-bold text-xl -mt-3">
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="custom-tooltip absolute right-0 bottom-[16.9rem]">
         <span style="
               font-size: 10px;
               font-weight: bold;
@@ -152,6 +192,22 @@
               letter-spacing: -0.16px;
               line-height: 15.5px;
             ">19% IRR</span>
+      </div>
+      <div class="absolute text-sm right-[-3.05rem] bottom-[18.8rem] z-10">
+        <div class="flex flex-col justify-ce6nter items-center text-gray-500">
+          <div class="border-b-2 border-gray-500/70">
+            <p>$150PT</p>
+            <!-- <p>+16%</p> -->
+          </div>
+          <div class="-space-y-5 *:font-bold text-xl -mt-3">
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+            <p>.</p>
+          </div>
+        </div>
       </div>
     </div>
     <div id="stacked-bar-chart-section">
@@ -273,8 +329,8 @@
               radius: 2,
             },
             label: {
-              borderWidth: 1,
-              text: "$100 PT",
+              // borderWidth: 1,
+              // text: "$100 PT",
               borderColor: "#666",
               // offsetX: -30,
               offsetY: -62,
@@ -298,8 +354,8 @@
               radius: 2,
             },
             label: {
-              borderWidth: 1,
-              text: "$60 PT",
+              // borderWidth: 1,
+              // text: "$60 PT",
               borderColor: "#666",
               offsetY: 67,
               style: {
@@ -322,8 +378,8 @@
               radius: 2,
             },
             label: {
-              borderWidth: 1,
-              text: "$70 PT",
+              // borderWidth: 1,
+              // text: "$70 PT",
               borderColor: "#666",
               offsetY: -61,
               style: {
@@ -346,8 +402,8 @@
               radius: 2,
             },
             label: {
-              borderWidth: 1,
-              text: "$150 PT",
+              // borderWidth: 1,
+              // text: "$150 PT",
               borderColor: "#666",
               className: "custom-label", // Add a custom class
               offsetX: -30, // Moves the label 10px to the right
