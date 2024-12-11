@@ -19,10 +19,10 @@
       margin: 0;
       background-color: #ffff;
     }
+
     #chart {
       max-width: 800px;
       margin: auto;
-
       border-radius: 8px;
       padding: 20px;
     }
@@ -43,7 +43,7 @@
 <body>
   <div class="flex flex-col">
     <div id="chart" class="relative">
-      <div class="custom-tooltip absolute left-[10.5rem] bottom-[11.5rem]">
+      <div class="custom-tooltip absolute z-10 left-[10.5rem] bottom-[11.5rem]">
         <span style="
               font-size: 10px;
               font-weight: bold;
@@ -69,7 +69,7 @@
               line-height: 15.5px;
             ">19% IRR</span>
       </div>
-      <div class="absolute text-sm left-[14.85rem] bottom-52 z-10">
+      <div class="absolute text-sm left-[14.64rem] bottom-[12.4rem] z-10">
         <div class="flex flex-col justify-center items-center text-gray-500">
           <div class="border-b-2 border-gray-500/70">
             <p>$100PT</p>
@@ -85,7 +85,7 @@
           </div>
         </div>
       </div>
-      <div class="custom-tooltip absolute left-[23.8rem] z-20 bottom-[9.6rem]">
+      <div class="custom-tooltip absolute left-[23.8rem] z-10 bottom-[9.6rem]">
         <span style="
               font-size: 10px;
               font-weight: bold;
@@ -111,7 +111,7 @@
               line-height: 15.5px;
             ">19% IRR</span>
       </div>
-      <div class="absolute text-sm left-[26.81rem] bottom-[3.8rem] z-10">
+      <div class="absolute text-sm left-[26.45rem] bottom-[4.2rem] z-10">
         <div class="flex flex-col-reverse justify-center items-center text-gray-500">
           <div class="border-t-2 border-gray-500/70">
             <p>$60PT</p>
@@ -125,7 +125,7 @@
           </div>
         </div>
       </div>
-      <div class="custom-tooltip absolute right-[11.68rem] bottom-[14.6rem]">
+      <div class="custom-tooltip absolute right-[12.5rem] z-10 bottom-[14.5rem]">
         <span style="
               font-size: 10px;
               font-weight: bold;
@@ -151,7 +151,7 @@
               line-height: 15.5px;
             ">19% IRR</span>
       </div>
-      <div class="absolute text-sm right-[8.9rem] bottom-[16.5rem] z-10">
+      <div class="absolute text-sm right-[9.5rem] bottom-[15.6rem] z-10">
         <div class="flex flex-col justify-ce6nter items-center text-gray-500">
           <div class="border-b-2 border-gray-500/70">
             <p>$70PT</p>
@@ -167,7 +167,7 @@
           </div>
         </div>
       </div>
-      <div class="custom-tooltip absolute right-0 bottom-[16.9rem]">
+      <div class="custom-tooltip absolute right-[1rem] z-10 bottom-[16.5rem]">
         <span style="
               font-size: 10px;
               font-weight: bold;
@@ -193,7 +193,7 @@
               line-height: 15.5px;
             ">19% IRR</span>
       </div>
-      <div class="absolute text-sm right-[-3.05rem] bottom-[18.8rem] z-10">
+      <div class="absolute text-sm right-[-2.32rem] bottom-[18.1rem] z-10">
         <div class="flex flex-col justify-ce6nter items-center text-gray-500">
           <div class="border-b-2 border-gray-500/70">
             <p>$150PT</p>
@@ -208,6 +208,22 @@
             <p>.</p>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="pl-[55px]">
+      <div class="ml-2 my-2 text-xs relative text-[#666666]">
+        <p class="absolute -top-5 left-3">2023</p>
+        <p class="absolute right-44 -top-5">2024</p>
+      </div>
+      <div class=" w-full mx-auto ml-7">
+        <svg width="740" height="17" viewBox="0 0 808 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.5 8L807.5 8.00007" stroke="#E5E5E5" />
+          <path d="M0.5 1V17" stroke="#E5E5E5" />
+          <path d="M201.5 1V17" stroke="#E5E5E5" />
+          <path d="M402.5 0V16" stroke="#E5E5E5" />
+          <path d="M603.5 1V17" stroke="#E5E5E5" />
+          <path d="M807.5 1V17" stroke="#E5E5E5" />
+        </svg>
       </div>
     </div>
     <div id="stacked-bar-chart-section">
@@ -280,11 +296,11 @@
       series: [
         {
           name: "Stock Price",
-          data: [0,60,100,130,60,80,140,80,170],
+          data: [0, 60, 100, 130, 60, 80, 140, 80, 170],
         },
       ],
       xaxis: {
-        categories: ["","" ,"Q1", "","Q2","", "Q3","","Q4"],
+        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",],
         labels: {
           style: {
             fontSize: "12px",
@@ -320,7 +336,7 @@
       annotations: {
         points: [
           {
-            x: "Q1",
+            x: "Mar",
             y: 101,
             marker: {
               size: 9,
@@ -345,7 +361,7 @@
             },
           },
           {
-            x: "Q2",
+            x: "May",
             y: 60,
             marker: {
               size: 9,
@@ -369,7 +385,7 @@
             },
           },
           {
-            x: "Q3",
+            x: "Jul",
             y: 140,
             marker: {
               size: 9,
@@ -393,7 +409,7 @@
             },
           },
           {
-            x: "Q4",
+            x: "Sep",
             y: 170,
             marker: {
               size: 9,
@@ -457,10 +473,10 @@
     var options2 = {
       series: [
         { name: "Strong Buy", data: [4, 4, 4, 4] },
-        { name: "Buy", data: [5, 5, 5, 5]},
+        { name: "Buy", data: [5, 5, 5, 5] },
         { name: "Hold", data: [2, 2, 2, 2] },
         { name: "Sell", data: [10, 10, 10, 10] },
-        { name: "Strong Sell", data: [10, 10, 10, 10]},
+        { name: "Strong Sell", data: [10, 10, 10, 10] },
       ],
       chart: {
         type: "bar",
@@ -512,7 +528,7 @@
       fill: {
         opacity: 1,
       },
-      colors: [ "#EF4543", "#E0A6D7","#B9B9B9", "#6BE99D", "#23C55E"],
+      colors: ["#EF4543", "#E0A6D7", "#B9B9B9", "#6BE99D", "#23C55E"],
       dataLabels: {
         enabled: false,
       },
