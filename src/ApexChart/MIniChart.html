@@ -1,101 +1,136 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Custom Line Chart with Tooltip</title>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <style>
-    #chart {
-      width: 100%;
-      max-width: 600px;
-      margin: auto;
-    }
-  </style>
-</head>
-<body>
-  <div id="chart"></div>
+  <head>
+    <title>Custom Line Chart with Tooltip</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      #chart {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        /* background-color: red !important; */
+        /* position: relative; */
+      }
+      
+    </style>
+  </head>
+  <body>
+    <main class="" >
+      <div id="chart" class="relative ">
+        <div class="bg-[#F5F5F5] p-2 rounded-sm text-sm card z-10 bottom-[4rem] opacity-80 left-[10.4rem] absolute ">
+          <p>$7.90</p>
+          <p>+4.2%</p>
+        </div>
+        <div class="bg-[#F5F5F5] p-1 rounded-sm text-sm card z-10 -bottom-[0.9rem] text-center *:opacity-80 left-[10.4rem] absolute ">
+          <p>Analyst</p>
+          <p>PT</p>
+        </div>
+        <div class="bg-[#F5F5F5] p-2 rounded-sm text-sm card z-10 bottom-[4rem]  opacity-80 right-[12.2rem] absolute ">
+          <p>$410.10</p>
+          <p>+64%</p>
+        </div>
+        <div class="bg-[#F5F5F5] p-1 rounded-sm text-sm card z-10 -bottom-[0.9rem] text-center *:opacity-80 right-[11.7rem] absolute ">
+          <p>Consensus</p>
+          <p>PT</p>
+        </div>
+      </div>
+      
+    </main>
+   
 
-  <script>
-    // Data for the chart
-    const data = {
-      min: 6.12,
-      max: 12.75,
-      points: [
-        { value: 7.8, label: "Analyst PT", color: "#00C851", percentage: "+42%" },
-        { value: 10.6, label: "Consensus PT", color: "#ff4444", percentage: "+64%" },
-      ],
-    };
+    <script>
+      // Data for the chart
+      const data = {
+        min: 6.12,
+        max: 12.75,
+        points: [
+          {
+            value: 8.3,
+            label: "Analyst PT",
+            color: "#00C851",
+            percentage: "+42%",
+          },
+          {
+            value: 10.5,
+            label: "Consensus PT",
+            color: "#ff4444",
+            percentage: "+64%",
+          },
+        ],
+      };
 
-    // Create the chart options
-    const options = {
-      chart: {
-        height: 250,
-        width: "100%",
-        type: "line",
-        zoom: {
+      // Create the chart options
+      const options = {
+        chart: {
+          height: 250,
+          width: "100%",
+          type: "line",
+          zoom: {
             enabled: false,
             type: "x",
           },
-        toolbar: { show: false },
-      },
-      series: [
-        {
-          name: "Values",
-          data: [
-            { x: data.points[0].value, y: 0 },
-            { x: data.points[1].value, y: 0 },
-          ],
+          toolbar: { show: false },
         },
-      ],
-      xaxis: {
-        type: "numeric",
-        min: data.min,
-        max: data.max,
-        labels: {
-          formatter: (value) => `$${value.toFixed(2)}`,
-        },
-        axisBorder: {
-    show: true, // Ensure the x-axis border is visible
-    color: "#D9D9D9", // Set the color of the line
-    height: 8, // Thickness of the x-axis stroke line in pixels
-  },
-      },
-      yaxis: {
-        show: false,
-      },
-      stroke: {
-        curve: "smooth", 
-        width: 5, 
-        colors: ["#0000FF"], 
-      },
-      annotations: {
-        points: data.points.map((point) => ({
-          x: point.value,
-          y: 0,
-          marker: {
-            size: 8,
-            fillColor: point.color,
+        series: [
+          {
+            name: "Values",
+            data: [
+              { x: data.points[0].value, y: 0 },
+              { x: data.points[1].value, y: 0 },
+            ],
           },
-        })),
-      },
-      tooltip: {
-        enabled: true,
-        custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-          const point = data.points[dataPointIndex];
-          return `<div style="background: #fff; border: 1px solid #ccc; padding: 8px; font-size: 12px;">
+        ],
+        xaxis: {
+          type: "numeric",
+          min: data.min,
+          max: data.max,
+          labels: {
+            formatter: (value) => `$${value.toFixed(2)}`,
+          },
+          axisBorder: {
+            show: true, // Ensure the x-axis border is visible
+            color: "#D9D9D9", // Set the color of the line
+            height: 8, // Thickness of the x-axis stroke line in pixels
+          },
+        },
+        yaxis: {
+          show: false,
+        },
+        stroke: {
+          curve: "smooth",
+          width: 5,
+          colors: ["#0000FF"],
+        },
+        annotations: {
+          points: data.points.map((point) => ({
+            x: point.value,
+            y: 0,
+            marker: {
+              size: 8,
+              fillColor: point.color,
+            },
+          })),
+        },
+        tooltip: {
+          enabled: true,
+          custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+            const point = data.points[dataPointIndex];
+            return `<div style="background: #fff; border: 1px solid #ccc; padding: 8px; font-size: 12px;">
                     <strong>${point.label}</strong><br>
                     Value: $${point.value}<br>
                     ${point.percentage}
                   </div>`;
+          },
         },
-      },
-      grid: {
-        show: false,
-      },
-    };
+        grid: {
+          show: false,
+        },
+      };
 
-    // Render the chart
-    const chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
-  </script>
-</body>
+      // Render the chart
+      const chart = new ApexCharts(document.querySelector("#chart"), options);
+      chart.render();
+    </script>
+  </body>
 </html>
