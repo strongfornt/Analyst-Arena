@@ -19,28 +19,28 @@
     <main class="">
       <div id="chart" class="relative">
         <div
-          class="flex justify-center flex-col items-center text-sm card z-10 bottom-[3.8rem] opacity-80 left-[10.5rem] absolute"
+          class="flex justify-center flex-col items-center text-sm card z-10 bottom-[3.8rem] opacity-50 left-[10.5rem] absolute"
         >
-          <div class="bg-[#F5F5F5] rounded-sm p-2">
+          <div class=" rounded-sm p-2">
             <p>$7.90</p>
             <p>+4.2%</p>
           </div>
-          <div class="h-2 w-[0.5px] mt-1 bg-black"></div>
+          <div class="h-2 w-[1px] bg-black"></div>
         </div>
         <div
-          class="bg-white rounded-sm text-sm card  *:opacity-50 z-10 -bottom-[0.2rem] text-center left-[10.8rem] absolute"
+          class="bg-white rounded-sm text-sm card *:opacity-50 z-10 -bottom-[0.2rem] text-center left-[10.8rem] absolute"
         >
           <p>Analyst</p>
           <p>PT</p>
         </div>
         <div
-          class="text-sm card z-10 flex flex-col justify-center items-center bottom-[4rem] opacity-80 right-[11.7rem] absolute"
+          class="text-sm card z-10 flex flex-col justify-center items-center bottom-[3.8rem] opacity-50 right-[11.65rem] absolute"
         >
-          <div class="bg-[#F5F5F5] rounded-sm p-2">
+          <div class=" rounded-sm p-2">
             <p>$410.10</p>
             <p>+64%</p>
           </div>
-          <div class="h-2 w-[0.5px] mt-1 bg-black"></div>
+          <div class="h-2 w-[1px] bg-black"></div>
         </div>
         <div
           class="bg-white rounded-sm text-sm card z-10  *:opacity-50 -bottom-[0.2rem] text-center right-[11.7rem] absolute"
@@ -49,11 +49,11 @@
           <p>PT</p>
         </div>
 
-        <div class="h-[5px] w-[0.5px] bg-black absolute bottom-[2.1rem] left-3" ></div>
-        <div class="h-[5px] w-[0.5px] bg-black absolute bottom-[2.1rem] left-[6.6rem]" ></div>
-        <div class="h-[5px] w-[0.5px] bg-black absolute bottom-[2.1rem] left-[18.2rem]" ></div>
-        <div class="h-[5px] w-[0.5px] bg-black absolute bottom-[2.1rem] right-[7.4rem]" ></div>
-        <div class="h-[5px] w-[0.5px] bg-black absolute bottom-[2.1rem] right-[1.85rem]" ></div>
+        <div class="h-[5px] w-[1px] bg-black absolute bottom-[2.1rem] left-3" ></div>
+        <div class="h-[5px] w-[1px] bg-black absolute bottom-[2.1rem] left-[6.6rem]" ></div>
+        <div class="h-[5px] w-[1px] bg-black absolute bottom-[2.1rem] left-[18.2rem]" ></div>
+        <div class="h-[5px] w-[1px] bg-black absolute bottom-[2.1rem] right-[7.4rem]" ></div>
+        <div class="h-[5px] w-[1px] bg-black absolute bottom-[2.1rem] right-[1.85rem]" ></div>
       </div>
     </main>
 
@@ -104,7 +104,7 @@
           min: data.min,
           max: data.max,
           labels: {
-            formatter: (value) => `$${value.toFixed(2)}`,
+            formatter: (value) => `$${value.toFixed(1)}`,
           },
           axisBorder: {
             show: true, // Ensure the x-axis border is visible
@@ -131,7 +131,7 @@
           })),
         },
         tooltip: {
-          enabled: true,
+          enabled: false,
           custom: function ({ series, seriesIndex, dataPointIndex, w }) {
             const point = data.points[dataPointIndex];
             //<div style="background: #fff; border: 1px solid #ccc; padding: 8px; font-size: 12px;">
